@@ -42,9 +42,31 @@
 
 #pragma mark Login
 
-- (IBAction)loginButtonTouchHandler:(id)sender  {
+- (IBAction)loginButtonPressed:(UIButton *)sender {
+    [PFUser logInWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
+        if (user) {
+            // Do stuff after successful login.
+            NSLog(@"User logged in!");
+            [self presentHomeTabBarControllerAnimated:YES];
+            self.passwordTextField.text = @"";
+        } else {
+            // The login failed. Check error to see why.
+            NSString *errorMessage = nil;
+            NSLog(@"Uh oh. An error occurred: %@", error);
+            errorMessage = [error localizedDescription];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error"
+                                                            message:errorMessage
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+        }
+    }];
+}
+
+- (IBAction)facebookLoginButtonPressed:(id)sender {
     // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"user_about_me", @"email", @"user_birthday", @"user_friends"];
     
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {

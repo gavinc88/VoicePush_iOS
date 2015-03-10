@@ -12,7 +12,12 @@
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-- (IBAction)loginButtonTouchHandler:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+
+- (IBAction)loginButtonPressed:(UIButton *)sender;
+
+- (IBAction)facebookLoginButtonPressed:(id)sender;
 
 @end
 
