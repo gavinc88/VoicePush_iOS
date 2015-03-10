@@ -33,6 +33,11 @@
 		861CEE411AAEB681004C221C /* test2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE401AAEB681004C221C /* test2.caf */; };
 		861CEE441AAEB753004C221C /* whereareyou.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE421AAEB753004C221C /* whereareyou.caf */; };
 		861CEE451AAEB753004C221C /* heybitch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE431AAEB753004C221C /* heybitch.caf */; };
+		861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE471AAEBBB4004C221C /* HomeTableViewController.m */; };
+		861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE4A1AAEBBC2004C221C /* FriendsTableViewController.m */; };
+		861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE4D1AAEBBE7004C221C /* SelectFriendsTableViewController.m */; };
+		861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */; };
+		861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE531AAEBBFB004C221C /* ShopTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +83,16 @@
 		861CEE401AAEB681004C221C /* test2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.caf; sourceTree = "<group>"; };
 		861CEE421AAEB753004C221C /* whereareyou.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whereareyou.caf; sourceTree = "<group>"; };
 		861CEE431AAEB753004C221C /* heybitch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = heybitch.caf; sourceTree = "<group>"; };
+		861CEE461AAEBBB4004C221C /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
+		861CEE471AAEBBB4004C221C /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
+		861CEE491AAEBBC2004C221C /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
+		861CEE4A1AAEBBC2004C221C /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		861CEE4C1AAEBBE7004C221C /* SelectFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFriendsTableViewController.h; sourceTree = "<group>"; };
+		861CEE4D1AAEBBE7004C221C /* SelectFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFriendsTableViewController.m; sourceTree = "<group>"; };
+		861CEE4F1AAEBBF1004C221C /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		861CEE521AAEBBFB004C221C /* ShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewController.h; sourceTree = "<group>"; };
+		861CEE531AAEBBFB004C221C /* ShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +160,16 @@
 				861CEE021AAE9A90004C221C /* Images.xcassets */,
 				861CEE041AAE9A90004C221C /* LaunchScreen.xib */,
 				861CEDF51AAE9A90004C221C /* Supporting Files */,
+				861CEE461AAEBBB4004C221C /* HomeTableViewController.h */,
+				861CEE471AAEBBB4004C221C /* HomeTableViewController.m */,
+				861CEE491AAEBBC2004C221C /* FriendsTableViewController.h */,
+				861CEE4A1AAEBBC2004C221C /* FriendsTableViewController.m */,
+				861CEE4C1AAEBBE7004C221C /* SelectFriendsTableViewController.h */,
+				861CEE4D1AAEBBE7004C221C /* SelectFriendsTableViewController.m */,
+				861CEE4F1AAEBBF1004C221C /* SettingsTableViewController.h */,
+				861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */,
+				861CEE521AAEBBFB004C221C /* ShopTableViewController.h */,
+				861CEE531AAEBBFB004C221C /* ShopTableViewController.m */,
 			);
 			path = VoicePush;
 			sourceTree = "<group>";
@@ -320,7 +345,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */,
+				861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */,
 				861CEDFE1AAE9A90004C221C /* ViewController.m in Sources */,
+				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
+				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
+				861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */,
 				861CEDFB1AAE9A90004C221C /* AppDelegate.m in Sources */,
 				861CEDF81AAE9A90004C221C /* main.m in Sources */,
 			);
