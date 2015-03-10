@@ -30,6 +30,9 @@
 		861CEE371AAEA41A004C221C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CEE361AAEA41A004C221C /* SystemConfiguration.framework */; };
 		861CEE391AAEA42A004C221C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CEE381AAEA42A004C221C /* libz.dylib */; };
 		861CEE3B1AAEA435004C221C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CEE3A1AAEA435004C221C /* libsqlite3.dylib */; };
+		861CEE411AAEB681004C221C /* test2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE401AAEB681004C221C /* test2.caf */; };
+		861CEE441AAEB753004C221C /* whereareyou.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE421AAEB753004C221C /* whereareyou.caf */; };
+		861CEE451AAEB753004C221C /* heybitch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE431AAEB753004C221C /* heybitch.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		861CEE361AAEA41A004C221C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		861CEE381AAEA42A004C221C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		861CEE3A1AAEA435004C221C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		861CEE401AAEB681004C221C /* test2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.caf; sourceTree = "<group>"; };
+		861CEE421AAEB753004C221C /* whereareyou.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whereareyou.caf; sourceTree = "<group>"; };
+		861CEE431AAEB753004C221C /* heybitch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = heybitch.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +209,9 @@
 		861CEE3D1AAEB342004C221C /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				861CEE421AAEB753004C221C /* whereareyou.caf */,
+				861CEE431AAEB753004C221C /* heybitch.caf */,
+				861CEE401AAEB681004C221C /* test2.caf */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -288,9 +297,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861CEE441AAEB753004C221C /* whereareyou.caf in Resources */,
 				861CEE011AAE9A90004C221C /* Main.storyboard in Resources */,
 				861CEE061AAE9A90004C221C /* LaunchScreen.xib in Resources */,
 				861CEE031AAE9A90004C221C /* Images.xcassets in Resources */,
+				861CEE451AAEB753004C221C /* heybitch.caf in Resources */,
+				861CEE411AAEB681004C221C /* test2.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
