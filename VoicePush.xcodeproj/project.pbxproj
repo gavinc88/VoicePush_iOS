@@ -38,6 +38,7 @@
 		861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE4D1AAEBBE7004C221C /* SelectFriendsTableViewController.m */; };
 		861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */; };
 		861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE531AAEBBFB004C221C /* ShopTableViewController.m */; };
+		861CEE5B1AAEC33A004C221C /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE5A1AAEC33A004C221C /* Sound.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		861CEE521AAEBBFB004C221C /* ShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewController.h; sourceTree = "<group>"; };
 		861CEE531AAEBBFB004C221C /* ShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewController.m; sourceTree = "<group>"; };
+		861CEE591AAEC33A004C221C /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		861CEE5A1AAEC33A004C221C /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +240,8 @@
 				861CEE421AAEB753004C221C /* whereareyou.caf */,
 				861CEE431AAEB753004C221C /* heybitch.caf */,
 				861CEE401AAEB681004C221C /* test2.caf */,
+				861CEE591AAEC33A004C221C /* Sound.h */,
+				861CEE5A1AAEC33A004C221C /* Sound.m */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 				861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */,
 				861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */,
 				861CEDFE1AAE9A90004C221C /* ViewController.m in Sources */,
+				861CEE5B1AAEC33A004C221C /* Sound.m in Sources */,
 				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
 				861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */,

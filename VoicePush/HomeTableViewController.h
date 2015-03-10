@@ -10,4 +10,6 @@
 
 @interface HomeTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *mySounds;
+
 @end
