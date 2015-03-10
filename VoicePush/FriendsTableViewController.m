@@ -7,6 +7,8 @@
 //
 
 #import "FriendsTableViewController.h"
+#import <Parse/Parse.h>
+#import "Helper.h"
 
 @interface FriendsTableViewController ()
 
@@ -17,11 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initializeMyFriends];
+    //self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,29 +28,62 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initializeMyFriends {
+    self.myFriends = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFUser query];
+    //[query whereKey:@"username" equalTo:@"theUsernameString"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully retrieved %lu users.", (unsigned long)objects.count);
+            if (objects.count) {
+                for (PFUser *object in objects) {
+                    NSLog(@"%@", object.objectId);
+                    if (![object.objectId isEqualToString:[PFUser currentUser].objectId]) {
+                        [self.myFriends addObject:object];
+                    }
+                }
+            }
+            [self.tableView reloadData];
+        }
+    }];
+     
+    self.myFriendRequests = [[NSMutableArray alloc] init];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
+    if (section == 0) {
+        return [self.myFriendRequests count];
+    } else if (section == 1) {
+        return [self.myFriends count];
+    }
     return 0;
 }
 
-/*
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0 && [self.myFriendRequests count]) {
+        return @"Friend Requests";
+    } else if (section == 1) {
+        return @"My Friends";
+    }
+    return @"";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendidentifier" forIndexPath:indexPath];
     
-    // Configure the cell...
+    PFUser *currentFriend = [self.myFriends objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = currentFriend[@"displayName"];
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

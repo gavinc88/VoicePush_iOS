@@ -40,6 +40,7 @@
 		861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE531AAEBBFB004C221C /* ShopTableViewController.m */; };
 		861CEE5B1AAEC33A004C221C /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE5A1AAEC33A004C221C /* Sound.m */; };
 		861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24C1AAEF929004C221C /* MainTabBarController.m */; };
+		861CF2501AAFAC6E004C221C /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24F1AAFAC6E004C221C /* Helper.m */; };
 		DBCF3F7F3F29E91C648463D3 /* libPods-VoicePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,8 @@
 		861CEE5A1AAEC33A004C221C /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		861CF24B1AAEF929004C221C /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		861CF24C1AAEF929004C221C /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		861CF24E1AAFAC6E004C221C /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		861CF24F1AAFAC6E004C221C /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoicePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +187,8 @@
 				861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */,
 				861CEE521AAEBBFB004C221C /* ShopTableViewController.h */,
 				861CEE531AAEBBFB004C221C /* ShopTableViewController.m */,
+				861CF24E1AAFAC6E004C221C /* Helper.h */,
+				861CF24F1AAFAC6E004C221C /* Helper.m */,
 			);
 			path = VoicePush;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
 				861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */,
 				861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */,
+				861CF2501AAFAC6E004C221C /* Helper.m in Sources */,
 				861CEDFB1AAE9A90004C221C /* AppDelegate.m in Sources */,
 				861CEDF81AAE9A90004C221C /* main.m in Sources */,
 			);

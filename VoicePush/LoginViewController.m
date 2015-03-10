@@ -31,6 +31,10 @@
     
     // Check if user is cached and linked to Facebook, if so, bypass login
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        NSLog(@"already logged in through FB");
+        [self presentHomeTabBarControllerAnimated:NO];
+    } else if ([PFUser currentUser]) {
+        NSLog(@"already logged in normally");
         [self presentHomeTabBarControllerAnimated:NO];
     }
 }
@@ -47,6 +51,10 @@
         if (user) {
             // Do stuff after successful login.
             NSLog(@"User logged in!");
+            
+            user[@"displayName"] = self.usernameTextField.text;
+            [user save];
+            
             [self presentHomeTabBarControllerAnimated:YES];
             self.passwordTextField.text = @"";
         } else {
@@ -93,6 +101,17 @@
             } else {
                 NSLog(@"User with facebook logged in!");
             }
+            
+            //update user display name
+            FBRequest *request = [FBRequest requestForMe];
+            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    NSDictionary *userData = (NSDictionary *)result;
+                    NSString *fbUsername = userData[@"name"];
+                    user[@"displayName"] = fbUsername;
+                    [user save];
+                }
+            }];
             [self presentHomeTabBarControllerAnimated:YES];
         }
     }];
