@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		861CEDF81AAE9A90004C221C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEDF71AAE9A90004C221C /* main.m */; };
 		861CEDFB1AAE9A90004C221C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEDFA1AAE9A90004C221C /* AppDelegate.m */; };
-		861CEDFE1AAE9A90004C221C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEDFD1AAE9A90004C221C /* ViewController.m */; };
+		861CEDFE1AAE9A90004C221C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEDFD1AAE9A90004C221C /* LoginViewController.m */; };
 		861CEE011AAE9A90004C221C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CEDFF1AAE9A90004C221C /* Main.storyboard */; };
 		861CEE031AAE9A90004C221C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE021AAE9A90004C221C /* Images.xcassets */; };
 		861CEE061AAE9A90004C221C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE041AAE9A90004C221C /* LaunchScreen.xib */; };
@@ -39,6 +39,8 @@
 		861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */; };
 		861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE531AAEBBFB004C221C /* ShopTableViewController.m */; };
 		861CEE5B1AAEC33A004C221C /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE5A1AAEC33A004C221C /* Sound.m */; };
+		861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24C1AAEF929004C221C /* MainTabBarController.m */; };
+		DBCF3F7F3F29E91C648463D3 /* libPods-VoicePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +54,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VoicePush.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B3CFAF226141799CCBF5418 /* Pods-VoicePush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoicePush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush.debug.xcconfig"; sourceTree = "<group>"; };
 		861CEDF21AAE9A90004C221C /* VoicePush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoicePush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CEDF61AAE9A90004C221C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		861CEDF71AAE9A90004C221C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		861CEDF91AAE9A90004C221C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		861CEDFA1AAE9A90004C221C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		861CEDFC1AAE9A90004C221C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		861CEDFD1AAE9A90004C221C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		861CEDFC1AAE9A90004C221C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		861CEDFD1AAE9A90004C221C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		861CEE001AAE9A90004C221C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		861CEE021AAE9A90004C221C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		861CEE051AAE9A90004C221C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -96,6 +100,9 @@
 		861CEE531AAEBBFB004C221C /* ShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewController.m; sourceTree = "<group>"; };
 		861CEE591AAEC33A004C221C /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		861CEE5A1AAEC33A004C221C /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
+		861CF24B1AAEF929004C221C /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		861CF24C1AAEF929004C221C /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoicePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +126,7 @@
 				861CEE251AAEA387004C221C /* ParseUI.framework in Frameworks */,
 				861CEE241AAEA387004C221C /* ParseFacebookUtils.framework in Frameworks */,
 				861CEE211AAEA387004C221C /* Bolts.framework in Frameworks */,
+				DBCF3F7F3F29E91C648463D3 /* libPods-VoicePush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +147,7 @@
 				861CEDF41AAE9A90004C221C /* VoicePush */,
 				861CEE0E1AAE9A90004C221C /* VoicePushTests */,
 				861CEDF31AAE9A90004C221C /* Products */,
+				A721CEAA2F02AD76C56DD11A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,12 +166,14 @@
 				861CEE3D1AAEB342004C221C /* Sound */,
 				861CEDF91AAE9A90004C221C /* AppDelegate.h */,
 				861CEDFA1AAE9A90004C221C /* AppDelegate.m */,
-				861CEDFC1AAE9A90004C221C /* ViewController.h */,
-				861CEDFD1AAE9A90004C221C /* ViewController.m */,
+				861CEDFC1AAE9A90004C221C /* LoginViewController.h */,
+				861CEDFD1AAE9A90004C221C /* LoginViewController.m */,
 				861CEDFF1AAE9A90004C221C /* Main.storyboard */,
 				861CEE021AAE9A90004C221C /* Images.xcassets */,
 				861CEE041AAE9A90004C221C /* LaunchScreen.xib */,
 				861CEDF51AAE9A90004C221C /* Supporting Files */,
+				861CF24B1AAEF929004C221C /* MainTabBarController.h */,
+				861CF24C1AAEF929004C221C /* MainTabBarController.m */,
 				861CEE461AAEBBB4004C221C /* HomeTableViewController.h */,
 				861CEE471AAEBBB4004C221C /* HomeTableViewController.m */,
 				861CEE491AAEBBC2004C221C /* FriendsTableViewController.h */,
@@ -230,6 +241,7 @@
 				861CEE281AAEA3BC004C221C /* CFNetwork.framework */,
 				861CEE261AAEA3B1004C221C /* AudioToolbox.framework */,
 				861CEE1B1AAEA387004C221C /* parse-library-1.6.4 */,
+				3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -246,6 +258,15 @@
 			name = Sound;
 			sourceTree = "<group>";
 		};
+		A721CEAA2F02AD76C56DD11A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B3CFAF226141799CCBF5418 /* Pods-VoicePush.debug.xcconfig */,
+				E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 861CEE151AAE9A90004C221C /* Build configuration list for PBXNativeTarget "VoicePush" */;
 			buildPhases = (
+				702759ABCB113E63759A9775 /* Check Pods Manifest.lock */,
 				861CEDEE1AAE9A90004C221C /* Sources */,
 				861CEDEF1AAE9A90004C221C /* Frameworks */,
 				861CEDF01AAE9A90004C221C /* Resources */,
+				A5FF22C64E3F1C0E996C74AF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -345,6 +368,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		702759ABCB113E63759A9775 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A5FF22C64E3F1C0E996C74AF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		861CEDEE1AAE9A90004C221C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -352,10 +408,11 @@
 			files = (
 				861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */,
 				861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */,
-				861CEDFE1AAE9A90004C221C /* ViewController.m in Sources */,
+				861CEDFE1AAE9A90004C221C /* LoginViewController.m in Sources */,
 				861CEE5B1AAEC33A004C221C /* Sound.m in Sources */,
 				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
+				861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */,
 				861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */,
 				861CEDFB1AAE9A90004C221C /* AppDelegate.m in Sources */,
 				861CEDF81AAE9A90004C221C /* main.m in Sources */,
@@ -434,7 +491,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -469,7 +526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -478,6 +535,7 @@
 		};
 		861CEE161AAE9A90004C221C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B3CFAF226141799CCBF5418 /* Pods-VoicePush.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -487,7 +545,30 @@
 					"$(PROJECT_DIR)/parse-library-1.6.4",
 				);
 				INFOPLIST_FILE = VoicePush/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-l\"Pods-VoicePush-Bolts\"",
+					"-l\"Pods-VoicePush-Facebook-iOS-SDK\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -495,6 +576,7 @@
 		};
 		861CEE171AAE9A90004C221C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -504,7 +586,30 @@
 					"$(PROJECT_DIR)/parse-library-1.6.4",
 				);
 				INFOPLIST_FILE = VoicePush/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-l\"Pods-VoicePush-Bolts\"",
+					"-l\"Pods-VoicePush-Facebook-iOS-SDK\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
