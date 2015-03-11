@@ -38,18 +38,28 @@
 		861CEE5B1AAEC33A004C221C /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE5A1AAEC33A004C221C /* Sound.m */; };
 		861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24C1AAEF929004C221C /* MainTabBarController.m */; };
 		861CF2501AAFAC6E004C221C /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24F1AAFAC6E004C221C /* Helper.m */; };
-		861CF2571AAFF8F7004C221C /* happy_halloween.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2521AAFF8F7004C221C /* happy_halloween.aiff */; };
-		861CF2581AAFF8F7004C221C /* hey_bitch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2531AAFF8F7004C221C /* hey_bitch.caf */; };
-		861CF2591AAFF8F7004C221C /* leave_now_while_you_still_can.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2541AAFF8F7004C221C /* leave_now_while_you_still_can.aiff */; };
-		861CF25A1AAFF8F7004C221C /* test2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2551AAFF8F7004C221C /* test2.caf */; };
-		861CF25B1AAFF8F7004C221C /* whereareyou.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2561AAFF8F7004C221C /* whereareyou.caf */; };
-		861CF25F1AAFFA8F004C221C /* audience_applause.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF25C1AAFFA8F004C221C /* audience_applause.aiff */; };
-		861CF2601AAFFA8F004C221C /* evil_laugh.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF25D1AAFFA8F004C221C /* evil_laugh.aiff */; };
-		861CF2611AAFFA8F004C221C /* MP5_SMG.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF25E1AAFFA8F004C221C /* MP5_SMG.aiff */; };
-		861CF2631AB026F5004C221C /* moaning.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2621AB026F5004C221C /* moaning.aiff */; };
 		861CF2661AB02907004C221C /* SoundLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF2651AB02907004C221C /* SoundLibrary.m */; };
 		861CF26A1AB0433A004C221C /* SoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF2691AB0433A004C221C /* SoundTableViewCell.m */; };
 		861CF26D1AB0498D004C221C /* AddMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF26C1AB0498D004C221C /* AddMessageViewController.m */; };
+		861CF2881AB0FFC2004C221C /* audience_applause.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2761AB0FFC2004C221C /* audience_applause.caf */; };
+		861CF2891AB0FFC2004C221C /* countdown.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2771AB0FFC2004C221C /* countdown.caf */; };
+		861CF28A1AB0FFC2004C221C /* do_it_again.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2781AB0FFC2004C221C /* do_it_again.caf */; };
+		861CF28B1AB0FFC2004C221C /* dramatic.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2791AB0FFC2004C221C /* dramatic.caf */; };
+		861CF28C1AB0FFC2004C221C /* evil_laugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF27A1AB0FFC2004C221C /* evil_laugh.caf */; };
+		861CF28D1AB0FFC2004C221C /* hello_hello_hello.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF27B1AB0FFC2004C221C /* hello_hello_hello.caf */; };
+		861CF28E1AB0FFC2004C221C /* hello.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF27C1AB0FFC2004C221C /* hello.caf */; };
+		861CF28F1AB0FFC2004C221C /* hey_bitch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF27D1AB0FFC2004C221C /* hey_bitch.caf */; };
+		861CF2901AB0FFC2004C221C /* leave_now_while_you_still_can.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF27E1AB0FFC2004C221C /* leave_now_while_you_still_can.caf */; };
+		861CF2911AB0FFC2004C221C /* moaning.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF27F1AB0FFC2004C221C /* moaning.caf */; };
+		861CF2921AB0FFC2004C221C /* MP5_SMG.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2801AB0FFC2004C221C /* MP5_SMG.caf */; };
+		861CF2931AB0FFC2004C221C /* oh_yeah.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2811AB0FFC2004C221C /* oh_yeah.caf */; };
+		861CF2941AB0FFC2004C221C /* psycho_scream.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2821AB0FFC2004C221C /* psycho_scream.caf */; };
+		861CF2951AB0FFC2004C221C /* suddenly.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2831AB0FFC2004C221C /* suddenly.caf */; };
+		861CF2961AB0FFC2004C221C /* test2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2841AB0FFC2004C221C /* test2.caf */; };
+		861CF2971AB0FFC2004C221C /* warning.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2851AB0FFC2004C221C /* warning.caf */; };
+		861CF2991AB0FFC2004C221C /* whistle.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2871AB0FFC2004C221C /* whistle.caf */; };
+		861CF29B1AB10050004C221C /* where_are_you.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29A1AB10050004C221C /* where_are_you.caf */; };
+		861CF29D1AB10087004C221C /* moon_space_blaster.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29C1AB10087004C221C /* moon_space_blaster.caf */; };
 		DBCF3F7F3F29E91C648463D3 /* libPods-VoicePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */; };
 /* End PBXBuildFile section */
 
@@ -111,21 +121,31 @@
 		861CF24C1AAEF929004C221C /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		861CF24E1AAFAC6E004C221C /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		861CF24F1AAFAC6E004C221C /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
-		861CF2521AAFF8F7004C221C /* happy_halloween.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = happy_halloween.aiff; path = Sound/happy_halloween.aiff; sourceTree = SOURCE_ROOT; };
-		861CF2531AAFF8F7004C221C /* hey_bitch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hey_bitch.caf; path = Sound/hey_bitch.caf; sourceTree = SOURCE_ROOT; };
-		861CF2541AAFF8F7004C221C /* leave_now_while_you_still_can.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = leave_now_while_you_still_can.aiff; path = Sound/leave_now_while_you_still_can.aiff; sourceTree = SOURCE_ROOT; };
-		861CF2551AAFF8F7004C221C /* test2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = test2.caf; path = Sound/test2.caf; sourceTree = SOURCE_ROOT; };
-		861CF2561AAFF8F7004C221C /* whereareyou.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = whereareyou.caf; path = Sound/whereareyou.caf; sourceTree = SOURCE_ROOT; };
-		861CF25C1AAFFA8F004C221C /* audience_applause.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = audience_applause.aiff; path = Sound/audience_applause.aiff; sourceTree = SOURCE_ROOT; };
-		861CF25D1AAFFA8F004C221C /* evil_laugh.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = evil_laugh.aiff; path = Sound/evil_laugh.aiff; sourceTree = SOURCE_ROOT; };
-		861CF25E1AAFFA8F004C221C /* MP5_SMG.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = MP5_SMG.aiff; path = Sound/MP5_SMG.aiff; sourceTree = SOURCE_ROOT; };
-		861CF2621AB026F5004C221C /* moaning.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = moaning.aiff; path = Sound/moaning.aiff; sourceTree = SOURCE_ROOT; };
 		861CF2641AB02907004C221C /* SoundLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundLibrary.h; sourceTree = "<group>"; };
 		861CF2651AB02907004C221C /* SoundLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundLibrary.m; sourceTree = "<group>"; };
 		861CF2681AB0433A004C221C /* SoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundTableViewCell.h; sourceTree = "<group>"; };
 		861CF2691AB0433A004C221C /* SoundTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundTableViewCell.m; sourceTree = "<group>"; };
 		861CF26B1AB0498D004C221C /* AddMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMessageViewController.h; sourceTree = "<group>"; };
 		861CF26C1AB0498D004C221C /* AddMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMessageViewController.m; sourceTree = "<group>"; };
+		861CF2761AB0FFC2004C221C /* audience_applause.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = audience_applause.caf; path = Sound/audience_applause.caf; sourceTree = SOURCE_ROOT; };
+		861CF2771AB0FFC2004C221C /* countdown.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = countdown.caf; path = Sound/countdown.caf; sourceTree = SOURCE_ROOT; };
+		861CF2781AB0FFC2004C221C /* do_it_again.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = do_it_again.caf; path = Sound/do_it_again.caf; sourceTree = SOURCE_ROOT; };
+		861CF2791AB0FFC2004C221C /* dramatic.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = dramatic.caf; path = Sound/dramatic.caf; sourceTree = SOURCE_ROOT; };
+		861CF27A1AB0FFC2004C221C /* evil_laugh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = evil_laugh.caf; path = Sound/evil_laugh.caf; sourceTree = SOURCE_ROOT; };
+		861CF27B1AB0FFC2004C221C /* hello_hello_hello.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hello_hello_hello.caf; path = Sound/hello_hello_hello.caf; sourceTree = SOURCE_ROOT; };
+		861CF27C1AB0FFC2004C221C /* hello.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hello.caf; path = Sound/hello.caf; sourceTree = SOURCE_ROOT; };
+		861CF27D1AB0FFC2004C221C /* hey_bitch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hey_bitch.caf; path = Sound/hey_bitch.caf; sourceTree = SOURCE_ROOT; };
+		861CF27E1AB0FFC2004C221C /* leave_now_while_you_still_can.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = leave_now_while_you_still_can.caf; path = Sound/leave_now_while_you_still_can.caf; sourceTree = SOURCE_ROOT; };
+		861CF27F1AB0FFC2004C221C /* moaning.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = moaning.caf; path = Sound/moaning.caf; sourceTree = SOURCE_ROOT; };
+		861CF2801AB0FFC2004C221C /* MP5_SMG.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MP5_SMG.caf; path = Sound/MP5_SMG.caf; sourceTree = SOURCE_ROOT; };
+		861CF2811AB0FFC2004C221C /* oh_yeah.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = oh_yeah.caf; path = Sound/oh_yeah.caf; sourceTree = SOURCE_ROOT; };
+		861CF2821AB0FFC2004C221C /* psycho_scream.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = psycho_scream.caf; path = Sound/psycho_scream.caf; sourceTree = SOURCE_ROOT; };
+		861CF2831AB0FFC2004C221C /* suddenly.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = suddenly.caf; path = Sound/suddenly.caf; sourceTree = SOURCE_ROOT; };
+		861CF2841AB0FFC2004C221C /* test2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = test2.caf; path = Sound/test2.caf; sourceTree = SOURCE_ROOT; };
+		861CF2851AB0FFC2004C221C /* warning.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = warning.caf; path = Sound/warning.caf; sourceTree = SOURCE_ROOT; };
+		861CF2871AB0FFC2004C221C /* whistle.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = whistle.caf; path = Sound/whistle.caf; sourceTree = SOURCE_ROOT; };
+		861CF29A1AB10050004C221C /* where_are_you.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = where_are_you.caf; path = Sound/where_are_you.caf; sourceTree = SOURCE_ROOT; };
+		861CF29C1AB10087004C221C /* moon_space_blaster.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = moon_space_blaster.caf; path = Sound/moon_space_blaster.caf; sourceTree = SOURCE_ROOT; };
 		E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoicePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,15 +207,6 @@
 		861CEDF41AAE9A90004C221C /* VoicePush */ = {
 			isa = PBXGroup;
 			children = (
-				861CF2621AB026F5004C221C /* moaning.aiff */,
-				861CF25C1AAFFA8F004C221C /* audience_applause.aiff */,
-				861CF25D1AAFFA8F004C221C /* evil_laugh.aiff */,
-				861CF25E1AAFFA8F004C221C /* MP5_SMG.aiff */,
-				861CF2521AAFF8F7004C221C /* happy_halloween.aiff */,
-				861CF2531AAFF8F7004C221C /* hey_bitch.caf */,
-				861CF2541AAFF8F7004C221C /* leave_now_while_you_still_can.aiff */,
-				861CF2551AAFF8F7004C221C /* test2.caf */,
-				861CF2561AAFF8F7004C221C /* whereareyou.caf */,
 				861CEE3D1AAEB342004C221C /* Sound */,
 				861CEDF91AAE9A90004C221C /* AppDelegate.h */,
 				861CEDFA1AAE9A90004C221C /* AppDelegate.m */,
@@ -223,8 +234,6 @@
 				861CEE5A1AAEC33A004C221C /* Sound.m */,
 				861CF24E1AAFAC6E004C221C /* Helper.h */,
 				861CF24F1AAFAC6E004C221C /* Helper.m */,
-				861CF2641AB02907004C221C /* SoundLibrary.h */,
-				861CF2651AB02907004C221C /* SoundLibrary.m */,
 				861CF2681AB0433A004C221C /* SoundTableViewCell.h */,
 				861CF2691AB0433A004C221C /* SoundTableViewCell.m */,
 			);
@@ -292,6 +301,27 @@
 		861CEE3D1AAEB342004C221C /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				861CF2641AB02907004C221C /* SoundLibrary.h */,
+				861CF2651AB02907004C221C /* SoundLibrary.m */,
+				861CF2761AB0FFC2004C221C /* audience_applause.caf */,
+				861CF2771AB0FFC2004C221C /* countdown.caf */,
+				861CF2781AB0FFC2004C221C /* do_it_again.caf */,
+				861CF2791AB0FFC2004C221C /* dramatic.caf */,
+				861CF27A1AB0FFC2004C221C /* evil_laugh.caf */,
+				861CF27B1AB0FFC2004C221C /* hello_hello_hello.caf */,
+				861CF27C1AB0FFC2004C221C /* hello.caf */,
+				861CF27D1AB0FFC2004C221C /* hey_bitch.caf */,
+				861CF27E1AB0FFC2004C221C /* leave_now_while_you_still_can.caf */,
+				861CF27F1AB0FFC2004C221C /* moaning.caf */,
+				861CF29C1AB10087004C221C /* moon_space_blaster.caf */,
+				861CF2801AB0FFC2004C221C /* MP5_SMG.caf */,
+				861CF2811AB0FFC2004C221C /* oh_yeah.caf */,
+				861CF2821AB0FFC2004C221C /* psycho_scream.caf */,
+				861CF2831AB0FFC2004C221C /* suddenly.caf */,
+				861CF2841AB0FFC2004C221C /* test2.caf */,
+				861CF2851AB0FFC2004C221C /* warning.caf */,
+				861CF29A1AB10050004C221C /* where_are_you.caf */,
+				861CF2871AB0FFC2004C221C /* whistle.caf */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -388,18 +418,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861CF2571AAFF8F7004C221C /* happy_halloween.aiff in Resources */,
-				861CF2611AAFFA8F004C221C /* MP5_SMG.aiff in Resources */,
-				861CF2601AAFFA8F004C221C /* evil_laugh.aiff in Resources */,
+				861CF28B1AB0FFC2004C221C /* dramatic.caf in Resources */,
 				861CEE011AAE9A90004C221C /* Main.storyboard in Resources */,
-				861CF2581AAFF8F7004C221C /* hey_bitch.caf in Resources */,
-				861CF25F1AAFFA8F004C221C /* audience_applause.aiff in Resources */,
+				861CF2891AB0FFC2004C221C /* countdown.caf in Resources */,
+				861CF2911AB0FFC2004C221C /* moaning.caf in Resources */,
+				861CF28D1AB0FFC2004C221C /* hello_hello_hello.caf in Resources */,
+				861CF2881AB0FFC2004C221C /* audience_applause.caf in Resources */,
+				861CF2951AB0FFC2004C221C /* suddenly.caf in Resources */,
+				861CF2971AB0FFC2004C221C /* warning.caf in Resources */,
+				861CF28E1AB0FFC2004C221C /* hello.caf in Resources */,
 				861CEE061AAE9A90004C221C /* LaunchScreen.xib in Resources */,
-				861CF25A1AAFF8F7004C221C /* test2.caf in Resources */,
-				861CF2591AAFF8F7004C221C /* leave_now_while_you_still_can.aiff in Resources */,
-				861CF2631AB026F5004C221C /* moaning.aiff in Resources */,
+				861CF2901AB0FFC2004C221C /* leave_now_while_you_still_can.caf in Resources */,
+				861CF2941AB0FFC2004C221C /* psycho_scream.caf in Resources */,
+				861CF2921AB0FFC2004C221C /* MP5_SMG.caf in Resources */,
+				861CF2931AB0FFC2004C221C /* oh_yeah.caf in Resources */,
 				861CEE031AAE9A90004C221C /* Images.xcassets in Resources */,
-				861CF25B1AAFF8F7004C221C /* whereareyou.caf in Resources */,
+				861CF28F1AB0FFC2004C221C /* hey_bitch.caf in Resources */,
+				861CF28C1AB0FFC2004C221C /* evil_laugh.caf in Resources */,
+				861CF28A1AB0FFC2004C221C /* do_it_again.caf in Resources */,
+				861CF29D1AB10087004C221C /* moon_space_blaster.caf in Resources */,
+				861CF2961AB0FFC2004C221C /* test2.caf in Resources */,
+				861CF29B1AB10050004C221C /* where_are_you.caf in Resources */,
+				861CF2991AB0FFC2004C221C /* whistle.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
