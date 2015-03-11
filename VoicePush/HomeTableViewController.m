@@ -34,9 +34,21 @@
     Sound *sound1 = [[Sound alloc] initWithname:@"Where are you?" andFilename:@"whereareyou.caf"];
     Sound *sound2 = [[Sound alloc] initWithname:@"Hey Bitch!" andFilename:@"heybitch.caf"];
     Sound *sound3 = [[Sound alloc] initWithname:@"test!" andFilename:@"test2.caf"];
+    Sound *sound4 = [[Sound alloc] initWithname:@"Leave now while you still can" andFilename:@"leave_now_while_you_still_can.aiff"];
+    Sound *sound5 = [[Sound alloc] initWithname:@"Happy Halloween" andFilename:@"happy_halloween.aiff"];
+    Sound *sound6 = [[Sound alloc] initWithname:@"Applause" andFilename:@"audience_applause.aiff"];
+    Sound *sound7 = [[Sound alloc] initWithname:@"Moaning" andFilename:@"moaning.aiff"];
+    Sound *sound8 = [[Sound alloc] initWithname:@"MP5 SMG" andFilename:@"MP5_SMG.aiff"];
+    Sound *sound9 = [[Sound alloc] initWithname:@"Evil Laugh" andFilename:@"evil_laugh.aiff"];
     [self.mySounds addObject:sound1];
     [self.mySounds addObject:sound2];
     [self.mySounds addObject:sound3];
+    [self.mySounds addObject:sound4];
+    [self.mySounds addObject:sound5];
+    [self.mySounds addObject:sound6];
+    [self.mySounds addObject:sound7];
+    [self.mySounds addObject:sound8];
+    [self.mySounds addObject:sound9];
 }
 
 #pragma mark - Table view data source

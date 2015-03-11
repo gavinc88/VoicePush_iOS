@@ -30,9 +30,6 @@
 		861CEE371AAEA41A004C221C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CEE361AAEA41A004C221C /* SystemConfiguration.framework */; };
 		861CEE391AAEA42A004C221C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CEE381AAEA42A004C221C /* libz.dylib */; };
 		861CEE3B1AAEA435004C221C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 861CEE3A1AAEA435004C221C /* libsqlite3.dylib */; };
-		861CEE411AAEB681004C221C /* test2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE401AAEB681004C221C /* test2.caf */; };
-		861CEE441AAEB753004C221C /* whereareyou.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE421AAEB753004C221C /* whereareyou.caf */; };
-		861CEE451AAEB753004C221C /* heybitch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CEE431AAEB753004C221C /* heybitch.caf */; };
 		861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE471AAEBBB4004C221C /* HomeTableViewController.m */; };
 		861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE4A1AAEBBC2004C221C /* FriendsTableViewController.m */; };
 		861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE4D1AAEBBE7004C221C /* SelectFriendsTableViewController.m */; };
@@ -41,6 +38,16 @@
 		861CEE5B1AAEC33A004C221C /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE5A1AAEC33A004C221C /* Sound.m */; };
 		861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24C1AAEF929004C221C /* MainTabBarController.m */; };
 		861CF2501AAFAC6E004C221C /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24F1AAFAC6E004C221C /* Helper.m */; };
+		861CF2571AAFF8F7004C221C /* happy_halloween.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2521AAFF8F7004C221C /* happy_halloween.aiff */; };
+		861CF2581AAFF8F7004C221C /* hey_bitch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2531AAFF8F7004C221C /* hey_bitch.caf */; };
+		861CF2591AAFF8F7004C221C /* leave_now_while_you_still_can.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2541AAFF8F7004C221C /* leave_now_while_you_still_can.aiff */; };
+		861CF25A1AAFF8F7004C221C /* test2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2551AAFF8F7004C221C /* test2.caf */; };
+		861CF25B1AAFF8F7004C221C /* whereareyou.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2561AAFF8F7004C221C /* whereareyou.caf */; };
+		861CF25F1AAFFA8F004C221C /* audience_applause.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF25C1AAFFA8F004C221C /* audience_applause.aiff */; };
+		861CF2601AAFFA8F004C221C /* evil_laugh.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF25D1AAFFA8F004C221C /* evil_laugh.aiff */; };
+		861CF2611AAFFA8F004C221C /* MP5_SMG.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF25E1AAFFA8F004C221C /* MP5_SMG.aiff */; };
+		861CF2631AB026F5004C221C /* moaning.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2621AB026F5004C221C /* moaning.aiff */; };
+		861CF2661AB02907004C221C /* SoundLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF2651AB02907004C221C /* SoundLibrary.m */; };
 		DBCF3F7F3F29E91C648463D3 /* libPods-VoicePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */; };
 /* End PBXBuildFile section */
 
@@ -86,9 +93,6 @@
 		861CEE361AAEA41A004C221C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		861CEE381AAEA42A004C221C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		861CEE3A1AAEA435004C221C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		861CEE401AAEB681004C221C /* test2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.caf; sourceTree = "<group>"; };
-		861CEE421AAEB753004C221C /* whereareyou.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whereareyou.caf; sourceTree = "<group>"; };
-		861CEE431AAEB753004C221C /* heybitch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = heybitch.caf; sourceTree = "<group>"; };
 		861CEE461AAEBBB4004C221C /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		861CEE471AAEBBB4004C221C /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		861CEE491AAEBBC2004C221C /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
@@ -105,6 +109,17 @@
 		861CF24C1AAEF929004C221C /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		861CF24E1AAFAC6E004C221C /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		861CF24F1AAFAC6E004C221C /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		861CF2521AAFF8F7004C221C /* happy_halloween.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = happy_halloween.aiff; path = Sound/happy_halloween.aiff; sourceTree = SOURCE_ROOT; };
+		861CF2531AAFF8F7004C221C /* hey_bitch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hey_bitch.caf; path = Sound/hey_bitch.caf; sourceTree = SOURCE_ROOT; };
+		861CF2541AAFF8F7004C221C /* leave_now_while_you_still_can.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = leave_now_while_you_still_can.aiff; path = Sound/leave_now_while_you_still_can.aiff; sourceTree = SOURCE_ROOT; };
+		861CF2551AAFF8F7004C221C /* test2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = test2.caf; path = Sound/test2.caf; sourceTree = SOURCE_ROOT; };
+		861CF2561AAFF8F7004C221C /* whereareyou.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = whereareyou.caf; path = Sound/whereareyou.caf; sourceTree = SOURCE_ROOT; };
+		861CF25C1AAFFA8F004C221C /* audience_applause.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = audience_applause.aiff; path = Sound/audience_applause.aiff; sourceTree = SOURCE_ROOT; };
+		861CF25D1AAFFA8F004C221C /* evil_laugh.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = evil_laugh.aiff; path = Sound/evil_laugh.aiff; sourceTree = SOURCE_ROOT; };
+		861CF25E1AAFFA8F004C221C /* MP5_SMG.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = MP5_SMG.aiff; path = Sound/MP5_SMG.aiff; sourceTree = SOURCE_ROOT; };
+		861CF2621AB026F5004C221C /* moaning.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = moaning.aiff; path = Sound/moaning.aiff; sourceTree = SOURCE_ROOT; };
+		861CF2641AB02907004C221C /* SoundLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundLibrary.h; sourceTree = "<group>"; };
+		861CF2651AB02907004C221C /* SoundLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundLibrary.m; sourceTree = "<group>"; };
 		E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoicePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +181,15 @@
 		861CEDF41AAE9A90004C221C /* VoicePush */ = {
 			isa = PBXGroup;
 			children = (
+				861CF2621AB026F5004C221C /* moaning.aiff */,
+				861CF25C1AAFFA8F004C221C /* audience_applause.aiff */,
+				861CF25D1AAFFA8F004C221C /* evil_laugh.aiff */,
+				861CF25E1AAFFA8F004C221C /* MP5_SMG.aiff */,
+				861CF2521AAFF8F7004C221C /* happy_halloween.aiff */,
+				861CF2531AAFF8F7004C221C /* hey_bitch.caf */,
+				861CF2541AAFF8F7004C221C /* leave_now_while_you_still_can.aiff */,
+				861CF2551AAFF8F7004C221C /* test2.caf */,
+				861CF2561AAFF8F7004C221C /* whereareyou.caf */,
 				861CEE3D1AAEB342004C221C /* Sound */,
 				861CEDF91AAE9A90004C221C /* AppDelegate.h */,
 				861CEDFA1AAE9A90004C221C /* AppDelegate.m */,
@@ -187,8 +211,12 @@
 				861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */,
 				861CEE521AAEBBFB004C221C /* ShopTableViewController.h */,
 				861CEE531AAEBBFB004C221C /* ShopTableViewController.m */,
+				861CEE591AAEC33A004C221C /* Sound.h */,
+				861CEE5A1AAEC33A004C221C /* Sound.m */,
 				861CF24E1AAFAC6E004C221C /* Helper.h */,
 				861CF24F1AAFAC6E004C221C /* Helper.m */,
+				861CF2641AB02907004C221C /* SoundLibrary.h */,
+				861CF2651AB02907004C221C /* SoundLibrary.m */,
 			);
 			path = VoicePush;
 			sourceTree = "<group>";
@@ -254,11 +282,6 @@
 		861CEE3D1AAEB342004C221C /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				861CEE421AAEB753004C221C /* whereareyou.caf */,
-				861CEE431AAEB753004C221C /* heybitch.caf */,
-				861CEE401AAEB681004C221C /* test2.caf */,
-				861CEE591AAEC33A004C221C /* Sound.h */,
-				861CEE5A1AAEC33A004C221C /* Sound.m */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -355,12 +378,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861CEE441AAEB753004C221C /* whereareyou.caf in Resources */,
+				861CF2571AAFF8F7004C221C /* happy_halloween.aiff in Resources */,
+				861CF2611AAFFA8F004C221C /* MP5_SMG.aiff in Resources */,
+				861CF2601AAFFA8F004C221C /* evil_laugh.aiff in Resources */,
 				861CEE011AAE9A90004C221C /* Main.storyboard in Resources */,
+				861CF2581AAFF8F7004C221C /* hey_bitch.caf in Resources */,
+				861CF25F1AAFFA8F004C221C /* audience_applause.aiff in Resources */,
 				861CEE061AAE9A90004C221C /* LaunchScreen.xib in Resources */,
+				861CF25A1AAFF8F7004C221C /* test2.caf in Resources */,
+				861CF2591AAFF8F7004C221C /* leave_now_while_you_still_can.aiff in Resources */,
+				861CF2631AB026F5004C221C /* moaning.aiff in Resources */,
 				861CEE031AAE9A90004C221C /* Images.xcassets in Resources */,
-				861CEE451AAEB753004C221C /* heybitch.caf in Resources */,
-				861CEE411AAEB681004C221C /* test2.caf in Resources */,
+				861CF25B1AAFF8F7004C221C /* whereareyou.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +443,7 @@
 				861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */,
 				861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */,
 				861CEDFE1AAE9A90004C221C /* LoginViewController.m in Sources */,
+				861CF2661AB02907004C221C /* SoundLibrary.m in Sources */,
 				861CEE5B1AAEC33A004C221C /* Sound.m in Sources */,
 				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
