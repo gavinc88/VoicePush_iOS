@@ -12,6 +12,7 @@
 @interface SelectFriendsTableViewController : UITableViewController
 
 @property (strong, nonatomic) Sound *mySound;
+@property (strong, nonatomic) NSString *myMessage;
 
 @property (strong, nonatomic) NSMutableArray *myFriends;
 @property (strong, nonatomic) NSMutableArray *selectedFriends;

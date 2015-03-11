@@ -8,6 +8,7 @@
 
 #import "HomeTableViewController.h"
 #import "SelectFriendsTableViewController.h"
+#import "AddMessageViewController.h"
 #import "SoundTableViewCell.h"
 #import "Sound.h"
 #import "SoundLibrary.h"
@@ -59,6 +60,11 @@
     if (indexPath.row == self.selectedIndex) {
         cell.addMessageButton.hidden = NO;
         cell.sendButton.hidden = NO;
+        
+        cell.addMessageButton.tag = indexPath.row;
+        cell.sendButton.tag = indexPath.row;
+        [cell.addMessageButton addTarget:self action:@selector(addMessageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.sendButton addTarget:self action:@selector(sendButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         cell.addMessageButton.hidden = YES;
         cell.sendButton.hidden = YES;
@@ -68,11 +74,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    self.selectedSound = [self.mySounds objectAtIndex:indexPath.row];
-//    if (self.selectedSound) {
-//        [self performSegueWithIdentifier:@"segueToSelectFriends" sender:self];
-//    }
-    
     // close expanded cell reclicked
     if (self.selectedIndex == indexPath.row) {
         self.selectedIndex = -1;
@@ -126,14 +127,33 @@
 */
 
 
+#pragma mark - Button Click Handler
+
+- (IBAction)addMessageButtonClicked:(UIButton *)sender {
+    self.selectedSound = [self.mySounds objectAtIndex:sender.tag];
+    if (self.selectedSound) {
+        [self performSegueWithIdentifier:@"segueToAddMessage" sender:self];
+    }
+}
+
+- (IBAction)sendButtonClicked:(UIButton *)sender {
+    self.selectedSound = [self.mySounds objectAtIndex:sender.tag];
+    if (self.selectedSound) {
+        [self performSegueWithIdentifier:@"segueToSelectFriends" sender:self];
+    }
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"segueToSelectFriends"]) {
         SelectFriendsTableViewController *dest = [segue destinationViewController];
+        dest.mySound = self.selectedSound;
+        dest.myMessage = nil;
+    } else if ([segue.identifier isEqualToString:@"segueToAddMessage"]) {
+        AddMessageViewController *dest = [segue destinationViewController];
         dest.mySound = self.selectedSound;
     }
 }

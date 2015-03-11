@@ -178,6 +178,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="W3U-gu-KZ9" kind="show" identifier="segueToSelectFriends" id="Lba-uh-0Uk"/>
+                        <segue destination="Dt1-aE-At8" kind="show" identifier="segueToAddMessage" id="Lju-te-Dnl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qye-Y3-7IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,7 +224,73 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNc-jf-Mr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1732" y="-79"/>
+            <point key="canvasLocation" x="1743" y="-79"/>
+        </scene>
+        <!--Add Message-->
+        <scene sceneID="qpo-Dd-nGL">
+            <objects>
+                <viewController storyboardIdentifier="AddMessageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dt1-aE-At8" customClass="AddMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Kg-ji-w43"/>
+                        <viewControllerLayoutGuide type="bottom" id="kZG-6Y-Tok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lZ7-xK-4kF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters left: 48 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl0-vm-16T">
+                                <rect key="frame" x="453" y="8" width="131" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="04o-fc-LRh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXZ-1R-2Go">
+                                <rect key="frame" x="16" y="37" width="568" height="84"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="ZlK-qU-bVU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nl0-vm-16T" firstAttribute="top" secondItem="0Kg-ji-w43" secondAttribute="bottom" constant="8" id="1y2-VJ-wxH"/>
+                            <constraint firstItem="WXZ-1R-2Go" firstAttribute="leading" secondItem="lZ7-xK-4kF" secondAttribute="leadingMargin" id="4gl-SH-3we"/>
+                            <constraint firstItem="WXZ-1R-2Go" firstAttribute="top" secondItem="0Kg-ji-w43" secondAttribute="bottom" constant="8" id="LQJ-6Y-Uff"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WXZ-1R-2Go" secondAttribute="trailing" id="SJt-t6-R9P"/>
+                            <constraint firstItem="nl0-vm-16T" firstAttribute="top" secondItem="WXZ-1R-2Go" secondAttribute="bottom" constant="8" id="U0V-8E-Poh"/>
+                            <constraint firstItem="nl0-vm-16T" firstAttribute="trailing" secondItem="WXZ-1R-2Go" secondAttribute="trailing" id="Ybf-lX-sw0"/>
+                            <constraint firstItem="nl0-vm-16T" firstAttribute="trailing" secondItem="WXZ-1R-2Go" secondAttribute="trailing" id="bjB-lx-Iyh"/>
+                            <constraint firstItem="WXZ-1R-2Go" firstAttribute="top" secondItem="nl0-vm-16T" secondAttribute="bottom" constant="8" id="wEE-fP-drB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LQJ-6Y-Uff"/>
+                                <exclude reference="U0V-8E-Poh"/>
+                                <exclude reference="bjB-lx-Iyh"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Message" id="gNJ-qW-G0f">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Mfq-P4-MaV">
+                            <connections>
+                                <segue destination="W3U-gu-KZ9" kind="show" identifier="segueToSelectFriends" id="Rjy-aS-teK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="charactersLeftMessage" destination="nl0-vm-16T" id="zwp-Xt-YBo"/>
+                        <outlet property="messageBox" destination="WXZ-1R-2Go" id="1oI-Uz-nEf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aYy-9Z-fli" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1743" y="-801"/>
         </scene>
         <!--Friends-->
         <scene sceneID="KUA-AU-j8w">
@@ -391,4 +458,7 @@
             <point key="canvasLocation" x="-373" y="1405"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rjy-aS-teK"/>
+    </inferredMetricsTieBreakers>
 </document>

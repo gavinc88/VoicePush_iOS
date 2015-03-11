@@ -54,30 +54,27 @@
 
 - (IBAction)sendPush:(UIBarButtonItem *)sender {
     
-    // Get an array of selected user objectId
-//    NSMutableArray *selectedUserIds = [[NSMutableArray alloc] init];
-//    for (PFUser *selectedFriend in self.selectedFriends) {
-//        [selectedUserIds addObject:selectedFriend.objectId];
-//    }
-    
     // Build the actual push notification target query
     PFQuery *pushQuery = [PFInstallation query];
     [pushQuery whereKey: @"user" containedIn: self.selectedFriends];
     
-    NSString *message = [NSString stringWithFormat: @"New Message from %@", [[PFUser currentUser] objectForKey:@"displayName"]];
+    NSString *message;
+    if (self.myMessage) {
+        message = [NSString stringWithFormat:@"%@:%@", [[PFUser currentUser] objectForKey:@"displayName"], self.myMessage];
+    } else {
+        message = [NSString stringWithFormat: @"New Message from %@", [[PFUser currentUser] objectForKey:@"displayName"]];
+    }
     
     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
                           message, @"alert",
                           self.mySound.filename, @"sound",
                           nil];
-//    NSLog(@"sending push notificaiton to: %@", selectedUserIds);
     
     // Send the notification.
     PFPush *push = [[PFPush alloc] init];
     [push setQuery:pushQuery];
     [push setData:data];
     [push sendPushInBackground];
-    
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
