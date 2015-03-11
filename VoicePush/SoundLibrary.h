@@ -11,8 +11,8 @@
 
 @interface SoundLibrary : NSObject
 
-@property (strong) NSDictionary *soundLibrary;
+@property (strong) NSArray *soundLibrary;
 
-+ (Sound *)getSoundWithKey:(NSString *)key andNumber:(int)number;
+- (id)initWithAllSounds;
 
 @end
