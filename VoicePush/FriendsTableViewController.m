@@ -8,7 +8,6 @@
 
 #import "FriendsTableViewController.h"
 #import <Parse/Parse.h>
-#import "Helper.h"
 
 @interface FriendsTableViewController ()
 

@@ -7,6 +7,7 @@
 //
 
 #import "MainTabBarController.h"
+#import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @implementation MainTabBarController
@@ -21,6 +22,13 @@
     
     // Return to Login view controller
     [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    //unregister user from PFInstallation
+    PFInstallation *installation = [PFInstallation currentInstallation];
+    if (installation.deviceToken) {
+        [installation removeObjectForKey:@"user"];
+        [installation saveInBackground];
+    }
 }
 
 @end

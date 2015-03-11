@@ -20,10 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    FBLoginView *loginView = [[FBLoginView alloc] init];
-//    loginView.center = self.view.center;
-//    [self.view addSubview:loginView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,8 +51,7 @@
             user[@"displayName"] = self.usernameTextField.text;
             [user save];
             
-            [self presentHomeTabBarControllerAnimated:YES];
-            self.passwordTextField.text = @"";
+            [self login];
         } else {
             // The login failed. Check error to see why.
             NSString *errorMessage = nil;
@@ -112,11 +107,29 @@
                     [user save];
                 }
             }];
-            [self presentHomeTabBarControllerAnimated:YES];
+            
+            [self login];
         }
     }];
     
     [_activityIndicator startAnimating]; // Show loading indicator until login is finished
+}
+
+
+- (void)login {
+    //TODO: clear them after testing
+    self.usernameTextField.text = @"gavinc88";
+    self.passwordTextField.text = @"test";
+    
+    //register user to PFInstallation
+    PFInstallation *installation = [PFInstallation currentInstallation];
+    if (installation.deviceToken) {
+        installation[@"user"] = [PFUser currentUser];
+        [installation saveInBackground];
+    }
+    
+    //show Home page
+    [self presentHomeTabBarControllerAnimated:YES];
 }
 
 - (void)presentHomeTabBarControllerAnimated:(BOOL)animated {

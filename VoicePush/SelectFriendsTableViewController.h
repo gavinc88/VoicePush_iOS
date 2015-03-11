@@ -10,4 +10,7 @@
 
 @interface SelectFriendsTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *myFriends;
+@property (strong, nonatomic) NSMutableArray *selectedFriends;
+
 @end

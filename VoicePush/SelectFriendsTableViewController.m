@@ -7,6 +7,7 @@
 //
 
 #import "SelectFriendsTableViewController.h"
+#import <Parse/Parse.h>
 
 @interface SelectFriendsTableViewController ()
 
@@ -17,11 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initializeMyFriends];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,29 +27,107 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initializeMyFriends {
+    self.myFriends = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFUser query];
+    //[query whereKey:@"username" equalTo:@"theUsernameString"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully retrieved %lu users.", (unsigned long)objects.count);
+            if (objects.count) {
+                for (PFUser *object in objects) {
+                    NSLog(@"%@", object.objectId);
+                    if (![object.objectId isEqualToString:[PFUser currentUser].objectId]) {
+                        [self.myFriends addObject:object];
+                    }
+                }
+            }
+            [self.tableView reloadData];
+        }
+    }];
+    
+    self.selectedFriends = [[NSMutableArray alloc] init];
+}
+
+#pragma mark - Send Push
+
+- (IBAction)sendPush:(UIBarButtonItem *)sender {
+    
+    // Get an array of selected user objectId
+//    NSMutableArray *selectedUserIds = [[NSMutableArray alloc] init];
+//    for (PFUser *selectedFriend in self.selectedFriends) {
+//        [selectedUserIds addObject:selectedFriend.objectId];
+//    }
+    
+    // Build the actual push notification target query
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey: @"user" containedIn: self.selectedFriends];
+    
+    NSString *message = [NSString stringWithFormat: @"New Message from %@", [[PFUser currentUser] objectForKey:@"displayName"]];
+    
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                          message, @"alert",
+                          @"whereareyou.caf", @"sound",
+                          nil];
+//    NSLog(@"sending push notificaiton to: %@", selectedUserIds);
+    
+    // Send the notification.
+    PFPush *push = [[PFPush alloc] init];
+    [push setQuery:pushQuery];
+    [push setData:data];
+    [push sendPushInBackground];
+    
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.myFriends count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendidentifier" forIndexPath:indexPath];
     
-    // Configure the cell...
+    PFUser *currentFriend = [self.myFriends objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = currentFriend[@"displayName"];
+    
+    if([self.selectedFriends containsObject:[self.myFriends objectAtIndex:indexPath.row]]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
-*/
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.selectedFriends addObject:[self.myFriends objectAtIndex:indexPath.row]];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.selectedFriends removeObject:[self.myFriends objectAtIndex:indexPath.row]];
+    }
+    
+    //toggle enable/disable send button
+    if ([self.selectedFriends count]) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    } else {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
