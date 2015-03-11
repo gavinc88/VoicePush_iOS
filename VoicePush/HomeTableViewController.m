@@ -8,12 +8,14 @@
 
 #import "HomeTableViewController.h"
 #import "SelectFriendsTableViewController.h"
+#import "SoundTableViewCell.h"
 #import "Sound.h"
 #import "SoundLibrary.h"
 
 @interface HomeTableViewController ()
 
-@property (strong, nonatomic) Sound *selectedSound;
+@property (nonatomic,strong) Sound *selectedSound;
+@property NSInteger selectedIndex;
 
 @end
 
@@ -22,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initializeMySounds];
-    self.selectedSound = nil;
+    self.selectedIndex = -1;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,20 +49,46 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundidentifier" forIndexPath:indexPath];
+    SoundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundidentifier" forIndexPath:indexPath];
     
     Sound *currentSound = [self.mySounds objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = currentSound.name;
+    cell.soundName.text = currentSound.name;
+    
+    // toggle button visibility
+    if (indexPath.row == self.selectedIndex) {
+        cell.addMessageButton.hidden = NO;
+        cell.sendButton.hidden = NO;
+    } else {
+        cell.addMessageButton.hidden = YES;
+        cell.sendButton.hidden = YES;
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedSound = [self.mySounds objectAtIndex:indexPath.row];
-    if (self.selectedSound) {
-        [self performSegueWithIdentifier:@"segueToSelectFriends" sender:self];
+//    self.selectedSound = [self.mySounds objectAtIndex:indexPath.row];
+//    if (self.selectedSound) {
+//        [self performSegueWithIdentifier:@"segueToSelectFriends" sender:self];
+//    }
+    
+    // close expanded cell reclicked
+    if (self.selectedIndex == indexPath.row) {
+        self.selectedIndex = -1;
+    } else {
+        self.selectedIndex = indexPath.row;
     }
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    [self.tableView reloadData];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.selectedIndex) {
+        return 88;
+    }
+    return 44;
 }
 
 /*

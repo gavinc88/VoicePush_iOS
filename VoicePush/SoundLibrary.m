@@ -23,7 +23,7 @@
         Sound *sound8 = [[Sound alloc] initWithname:@"Test" andFilename:@"test2.caf"];
         Sound *sound9 = [[Sound alloc] initWithname:@"Where are you?" andFilename:@"whereareyou.caf"];
         
-        self.soundLibrary = [[NSArray alloc]initWithObjects:sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9, nil];
+        self.soundLibrary = [[NSArray alloc]initWithObjects:sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9,sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9,nil];
     }
     return self;
 }
