@@ -146,10 +146,10 @@
 		861CEDE91AAE9A90004C221C = {
 			isa = PBXGroup;
 			children = (
-				861CEE3C1AAEA468004C221C /* Frameworks */,
 				861CEDF41AAE9A90004C221C /* VoicePush */,
 				861CEE0E1AAE9A90004C221C /* VoicePushTests */,
 				861CEDF31AAE9A90004C221C /* Products */,
+				861CEE3C1AAEA468004C221C /* Frameworks */,
 				A721CEAA2F02AD76C56DD11A /* Pods */,
 			);
 			sourceTree = "<group>";

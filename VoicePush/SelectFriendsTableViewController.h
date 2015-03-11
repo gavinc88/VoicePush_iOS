@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Sound.h"
 
 @interface SelectFriendsTableViewController : UITableViewController
+
+@property (strong, nonatomic) Sound *mySound;
 
 @property (strong, nonatomic) NSMutableArray *myFriends;
 @property (strong, nonatomic) NSMutableArray *selectedFriends;

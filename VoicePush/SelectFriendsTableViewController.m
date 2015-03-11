@@ -68,7 +68,7 @@
     
     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
                           message, @"alert",
-                          @"whereareyou.caf", @"sound",
+                          self.mySound.filename, @"sound",
                           nil];
 //    NSLog(@"sending push notificaiton to: %@", selectedUserIds);
     

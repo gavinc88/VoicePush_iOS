@@ -127,9 +127,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="W3U-gu-KZ9" kind="show" id="Sgo-x7-hIK"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -140,6 +137,9 @@
                     <navigationItem key="navigationItem" title="Find a Sound" id="0IU-dp-4Vu">
                         <barButtonItem key="rightBarButtonItem" title="Shop" id="p2V-fb-4bY"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="W3U-gu-KZ9" kind="show" identifier="segueToSelectFriends" id="Lba-uh-0Uk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qye-Y3-7IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,7 +148,7 @@
         <!--Select Friends-->
         <scene sceneID="acK-91-Iaa">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="W3U-gu-KZ9" customClass="SelectFriendsTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SelectFriendsViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W3U-gu-KZ9" customClass="SelectFriendsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dvk-sB-ABG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
