@@ -81,21 +81,24 @@ SystemSoundID mySoundID; //used to play selected sound
     // close expanded cell reclicked
     if (self.selectedIndex == indexPath.row) {
         self.selectedIndex = -1;
+        
+        // Dispose of the sound
+        AudioServicesDisposeSystemSoundID(mySoundID);
     } else {
         self.selectedIndex = indexPath.row;
+        
+        // Dispose of the sound
+        AudioServicesDisposeSystemSoundID(mySoundID);
+        
+        // Create the sound ID
+        Sound *currentSound = [self.mySounds objectAtIndex:indexPath.row];
+        NSString *soundPath = [[NSBundle mainBundle] pathForResource:currentSound.filename ofType:currentSound.fileType];
+        NSURL *pewPewURL = [NSURL fileURLWithPath:soundPath];
+        
+        // Play the sound
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &mySoundID);
+        AudioServicesPlaySystemSound(mySoundID);
     }
-    
-    // Dispose of the sound
-    AudioServicesDisposeSystemSoundID(mySoundID);
-    
-    // Create the sound ID
-    Sound *currentSound = [self.mySounds objectAtIndex:indexPath.row];
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:currentSound.filename ofType:currentSound.fileType];
-    NSURL *pewPewURL = [NSURL fileURLWithPath:soundPath];
-    
-    // Play the sound
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &mySoundID);
-    AudioServicesPlaySystemSound(mySoundID);
     
     [self.tableView beginUpdates];
     [self.tableView endUpdates];

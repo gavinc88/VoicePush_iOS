@@ -10,4 +10,6 @@
 
 @interface SettingsTableViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UISwitch *allNotificationSwitch;
+
 @end

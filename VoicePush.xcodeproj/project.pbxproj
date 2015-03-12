@@ -34,7 +34,6 @@
 		861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE4A1AAEBBC2004C221C /* FriendsTableViewController.m */; };
 		861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE4D1AAEBBE7004C221C /* SelectFriendsTableViewController.m */; };
 		861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */; };
-		861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE531AAEBBFB004C221C /* ShopTableViewController.m */; };
 		861CEE5B1AAEC33A004C221C /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CEE5A1AAEC33A004C221C /* Sound.m */; };
 		861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24C1AAEF929004C221C /* MainTabBarController.m */; };
 		861CF2501AAFAC6E004C221C /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF24F1AAFAC6E004C221C /* Helper.m */; };
@@ -60,6 +59,7 @@
 		861CF2991AB0FFC2004C221C /* whistle.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2871AB0FFC2004C221C /* whistle.caf */; };
 		861CF29B1AB10050004C221C /* where_are_you.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29A1AB10050004C221C /* where_are_you.caf */; };
 		861CF29D1AB10087004C221C /* moon_space_blaster.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29C1AB10087004C221C /* moon_space_blaster.caf */; };
+		861CF2A01AB146E5004C221C /* ShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */; };
 		DBCF3F7F3F29E91C648463D3 /* libPods-VoicePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */; };
 /* End PBXBuildFile section */
 
@@ -113,8 +113,6 @@
 		861CEE4D1AAEBBE7004C221C /* SelectFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFriendsTableViewController.m; sourceTree = "<group>"; };
 		861CEE4F1AAEBBF1004C221C /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
-		861CEE521AAEBBFB004C221C /* ShopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewController.h; sourceTree = "<group>"; };
-		861CEE531AAEBBFB004C221C /* ShopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewController.m; sourceTree = "<group>"; };
 		861CEE591AAEC33A004C221C /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		861CEE5A1AAEC33A004C221C /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		861CF24B1AAEF929004C221C /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
@@ -146,6 +144,8 @@
 		861CF2871AB0FFC2004C221C /* whistle.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = whistle.caf; path = Sound/whistle.caf; sourceTree = SOURCE_ROOT; };
 		861CF29A1AB10050004C221C /* where_are_you.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = where_are_you.caf; path = Sound/where_are_you.caf; sourceTree = SOURCE_ROOT; };
 		861CF29C1AB10087004C221C /* moon_space_blaster.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = moon_space_blaster.caf; path = Sound/moon_space_blaster.caf; sourceTree = SOURCE_ROOT; };
+		861CF29E1AB146E5004C221C /* ShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCollectionViewController.h; sourceTree = "<group>"; };
+		861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCollectionViewController.m; sourceTree = "<group>"; };
 		E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoicePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,12 +228,12 @@
 				861CEE4A1AAEBBC2004C221C /* FriendsTableViewController.m */,
 				861CEE4F1AAEBBF1004C221C /* SettingsTableViewController.h */,
 				861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */,
-				861CEE521AAEBBFB004C221C /* ShopTableViewController.h */,
-				861CEE531AAEBBFB004C221C /* ShopTableViewController.m */,
 				861CF24E1AAFAC6E004C221C /* Helper.h */,
 				861CF24F1AAFAC6E004C221C /* Helper.m */,
 				861CF2681AB0433A004C221C /* SoundTableViewCell.h */,
 				861CF2691AB0433A004C221C /* SoundTableViewCell.m */,
+				861CF29E1AB146E5004C221C /* ShopCollectionViewController.h */,
+				861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */,
 			);
 			path = VoicePush;
 			sourceTree = "<group>";
@@ -492,6 +492,7 @@
 			files = (
 				861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */,
 				861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */,
+				861CF2A01AB146E5004C221C /* ShopCollectionViewController.m in Sources */,
 				861CF26D1AB0498D004C221C /* AddMessageViewController.m in Sources */,
 				861CEDFE1AAE9A90004C221C /* LoginViewController.m in Sources */,
 				861CF2661AB02907004C221C /* SoundLibrary.m in Sources */,
@@ -499,7 +500,6 @@
 				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
 				861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */,
-				861CEE541AAEBBFB004C221C /* ShopTableViewController.m in Sources */,
 				861CF2501AAFAC6E004C221C /* Helper.m in Sources */,
 				861CEDFB1AAE9A90004C221C /* AppDelegate.m in Sources */,
 				861CEDF81AAE9A90004C221C /* main.m in Sources */,
