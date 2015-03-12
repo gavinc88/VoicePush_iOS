@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *soundName;
 @property (strong, nonatomic) IBOutlet UIButton *addMessageButton;
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
+@property (strong, nonatomic) IBOutlet UIButton *previewButton;
 
 @end

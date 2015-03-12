@@ -160,31 +160,43 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEL-s6-Wbq">
-                                            <rect key="frame" x="28" y="44" width="262" height="30"/>
+                                            <rect key="frame" x="209" y="44" width="181.5" height="30"/>
                                             <color key="backgroundColor" red="0.0" green="0.81840277777777781" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="Add Message">
+                                            <state key="normal" title="Message">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TQ-19-1cC">
-                                            <rect key="frame" x="310" y="44" width="262" height="30"/>
+                                            <rect key="frame" x="400" y="44" width="181" height="30"/>
                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" title="Send">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlJ-jf-Cbr">
+                                            <rect key="frame" x="18" y="44" width="181" height="30"/>
+                                            <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Preview">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="GBs-B5-CzP" secondAttribute="trailing" constant="10" id="2ne-vW-1sP"/>
-                                        <constraint firstItem="9TQ-19-1cC" firstAttribute="leading" secondItem="QEL-s6-Wbq" secondAttribute="trailing" constant="20" id="6tT-yT-vGf"/>
+                                        <constraint firstItem="AlJ-jf-Cbr" firstAttribute="leading" secondItem="uHh-hB-ON6" secondAttribute="leadingMargin" constant="10" id="4nU-ZY-0mk"/>
+                                        <constraint firstItem="9TQ-19-1cC" firstAttribute="leading" secondItem="QEL-s6-Wbq" secondAttribute="trailing" constant="10" id="6tT-yT-vGf"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="GBs-B5-CzP" secondAttribute="bottom" constant="6.5" id="PDK-Rn-uef"/>
+                                        <constraint firstItem="AlJ-jf-Cbr" firstAttribute="width" secondItem="QEL-s6-Wbq" secondAttribute="width" id="WQo-pq-4dr"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AlJ-jf-Cbr" secondAttribute="bottom" constant="5" id="ZUA-ST-uPY"/>
+                                        <constraint firstItem="QEL-s6-Wbq" firstAttribute="leading" secondItem="AlJ-jf-Cbr" secondAttribute="trailing" constant="10" id="aSk-Wg-9SZ"/>
                                         <constraint firstItem="QEL-s6-Wbq" firstAttribute="width" secondItem="9TQ-19-1cC" secondAttribute="width" id="bUo-qE-Bma"/>
                                         <constraint firstItem="QEL-s6-Wbq" firstAttribute="leading" secondItem="uHh-hB-ON6" secondAttribute="leadingMargin" constant="20" id="c7I-vp-ULV"/>
                                         <constraint firstItem="GBs-B5-CzP" firstAttribute="leading" secondItem="uHh-hB-ON6" secondAttribute="leadingMargin" constant="10" id="fDf-en-TD6"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="9TQ-19-1cC" secondAttribute="trailing" constant="20" id="fa9-xt-Svq"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9TQ-19-1cC" secondAttribute="trailing" constant="10" id="fa9-xt-Svq"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="QEL-s6-Wbq" secondAttribute="bottom" constant="5" id="hGm-zB-9qp"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="9TQ-19-1cC" secondAttribute="bottom" constant="5" id="pyR-RM-VBZ"/>
                                         <constraint firstItem="GBs-B5-CzP" firstAttribute="top" secondItem="uHh-hB-ON6" secondAttribute="topMargin" constant="5" id="sMB-NX-Pwn"/>
@@ -192,11 +204,13 @@
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="PDK-Rn-uef"/>
+                                            <exclude reference="c7I-vp-ULV"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addMessageButton" destination="QEL-s6-Wbq" id="6pH-C1-rpe"/>
+                                    <outlet property="previewButton" destination="AlJ-jf-Cbr" id="4xr-d1-NcN"/>
                                     <outlet property="sendButton" destination="9TQ-19-1cC" id="KG2-z4-P7V"/>
                                     <outlet property="soundName" destination="GBs-B5-CzP" id="Xav-ov-WT5"/>
                                 </connections>
@@ -567,6 +581,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Rjy-aS-teK"/>
+        <segue reference="Lba-uh-0Uk"/>
     </inferredMetricsTieBreakers>
 </document>

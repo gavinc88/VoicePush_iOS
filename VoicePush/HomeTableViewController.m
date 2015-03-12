@@ -64,40 +64,32 @@ SystemSoundID mySoundID; //used to play selected sound
     if (indexPath.row == self.selectedIndex) {
         cell.addMessageButton.hidden = NO;
         cell.sendButton.hidden = NO;
+        cell.previewButton.hidden = NO;
         
         cell.addMessageButton.tag = indexPath.row;
         cell.sendButton.tag = indexPath.row;
+        cell.previewButton.tag = indexPath.row;
         [cell.addMessageButton addTarget:self action:@selector(addMessageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [cell.sendButton addTarget:self action:@selector(sendButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.previewButton addTarget:self action:@selector(previewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         cell.addMessageButton.hidden = YES;
         cell.sendButton.hidden = YES;
+        cell.previewButton.hidden = YES;
     }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Dispose of the sound
+    AudioServicesDisposeSystemSoundID(mySoundID);
+    
     // close expanded cell reclicked
     if (self.selectedIndex == indexPath.row) {
         self.selectedIndex = -1;
-        
-        // Dispose of the sound
-        AudioServicesDisposeSystemSoundID(mySoundID);
     } else {
         self.selectedIndex = indexPath.row;
-        
-        // Dispose of the sound
-        AudioServicesDisposeSystemSoundID(mySoundID);
-        
-        // Create the sound ID
-        Sound *currentSound = [self.mySounds objectAtIndex:indexPath.row];
-        NSString *soundPath = [[NSBundle mainBundle] pathForResource:currentSound.filename ofType:currentSound.fileType];
-        NSURL *pewPewURL = [NSURL fileURLWithPath:soundPath];
-        
-        // Play the sound
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &mySoundID);
-        AudioServicesPlaySystemSound(mySoundID);
     }
     
     [self.tableView beginUpdates];
@@ -163,10 +155,28 @@ SystemSoundID mySoundID; //used to play selected sound
     }
 }
 
+- (IBAction)previewButtonClicked:(UIButton *)sender {
+    // Dispose of the sound
+    AudioServicesDisposeSystemSoundID(mySoundID);
+    
+    // Create the sound ID
+    Sound *currentSound = [self.mySounds objectAtIndex:sender.tag];
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:currentSound.filename ofType:currentSound.fileType];
+    NSURL *pewPewURL = [NSURL fileURLWithPath:soundPath];
+    
+    // Play the sound
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &mySoundID);
+    AudioServicesPlaySystemSound(mySoundID);
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    // Dispose of the sound
+    AudioServicesDisposeSystemSoundID(mySoundID);
+    
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"segueToSelectFriends"]) {
         SelectFriendsTableViewController *dest = [segue destinationViewController];
