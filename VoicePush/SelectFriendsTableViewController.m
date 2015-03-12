@@ -37,7 +37,6 @@
             NSLog(@"Successfully retrieved %lu users.", (unsigned long)objects.count);
             if (objects.count) {
                 for (PFUser *object in objects) {
-                    NSLog(@"%@", object.objectId);
                     if (![object.objectId isEqualToString:[PFUser currentUser].objectId]) {
                         [self.myFriends addObject:object];
                     }
@@ -60,7 +59,7 @@
     
     NSString *message;
     if (self.myMessage) {
-        message = [NSString stringWithFormat:@"%@:%@", [[PFUser currentUser] objectForKey:@"displayName"], self.myMessage];
+        message = [NSString stringWithFormat:@"%@: %@", [[PFUser currentUser] objectForKey:@"displayName"], self.myMessage];
     } else {
         message = [NSString stringWithFormat: @"New Message from %@", [[PFUser currentUser] objectForKey:@"displayName"]];
     }

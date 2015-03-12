@@ -16,15 +16,42 @@
 
     //self.navigationItem.rightBarButtonItem.enabled = NO;
     [self.messageBox becomeFirstResponder];
+    self.messageBox.delegate = self;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Pass the sound along
+    // Pass the sound and message along
     if ([segue.identifier isEqualToString:@"segueToSelectFriends"]) {
         SelectFriendsTableViewController *dest = [segue destinationViewController];
         dest.mySound = self.mySound;
         dest.myMessage = self.messageBox.text;
     }
 }
+
+- (void)textViewDidChange:(UITextView *)textView{
+    self.charactersLeftMessage.text = [NSString stringWithFormat:@"Characters left: %lu", 48 - self.messageBox.text.length];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if(range.length + range.location > textView.text.length) {
+        return NO;
+    }
+    
+    // disable newline character and call next
+    NSCharacterSet *doneButtonCharacterSet = [NSCharacterSet newlineCharacterSet];
+    NSRange replacementTextRange = [text rangeOfCharacterFromSet:doneButtonCharacterSet];
+    NSUInteger location = replacementTextRange.location;
+    if (location != NSNotFound) {
+        [self performSegueWithIdentifier:@"segueToSelectFriends" sender:self];
+        return NO;
+    }
+    
+    NSUInteger newLength = [textView.text length] + [text length] - range.length;
+    
+    //NSLog(@"shouldChangeCharactersInRange %lu for %@",(unsigned long)newLength, text);
+    return (newLength > 48) ? NO : YES;
+}
+
 
 @end

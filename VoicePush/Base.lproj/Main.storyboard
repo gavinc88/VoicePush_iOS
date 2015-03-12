@@ -248,16 +248,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXZ-1R-2Go">
-                                <rect key="frame" x="16" y="37" width="568" height="84"/>
+                                <rect key="frame" x="16" y="37" width="568" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="ZlK-qU-bVU"/>
+                                    <constraint firstAttribute="height" constant="60" id="ZlK-qU-bVU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.65473882299999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nl0-vm-16T" firstAttribute="top" secondItem="0Kg-ji-w43" secondAttribute="bottom" constant="8" id="1y2-VJ-wxH"/>
                             <constraint firstItem="WXZ-1R-2Go" firstAttribute="leading" secondItem="lZ7-xK-4kF" secondAttribute="leadingMargin" id="4gl-SH-3we"/>

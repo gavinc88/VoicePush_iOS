@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Sound.h"
 
-@interface AddMessageViewController : UIViewController
+@interface AddMessageViewController : UIViewController <UITextViewDelegate>
 
 @property (strong, nonatomic) Sound *mySound;
 @property (strong, nonatomic) IBOutlet UITextView *messageBox;
