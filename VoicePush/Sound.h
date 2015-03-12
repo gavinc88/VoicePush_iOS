@@ -12,9 +12,11 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong) NSString *fileType;
 
-- (instancetype) initWithname:(NSString *)name
-                  andFilename:(NSString *)filename;
+- (instancetype) initWithName:(NSString *)name
+                     filename:(NSString *)filename
+                         type:(NSString *)type;
 
 - (void) toString;
 

@@ -64,9 +64,11 @@
         message = [NSString stringWithFormat: @"New Message from %@", [[PFUser currentUser] objectForKey:@"displayName"]];
     }
     
+    NSString *filePath = [NSString stringWithFormat:@"%@.%@", self.mySound.filename, self.mySound.fileType];
+    
     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
                           message, @"alert",
-                          self.mySound.filename, @"sound",
+                          filePath, @"sound",
                           nil];
     
     // Send the notification.

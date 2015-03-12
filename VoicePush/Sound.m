@@ -10,19 +10,21 @@
 
 @implementation Sound
 
-- (instancetype) initWithname:(NSString *)name
-                  andFilename:(NSString *)filename {
+- (instancetype) initWithName:(NSString *)name
+                     filename:(NSString *)filename
+                         type:(NSString *)type {
     self = [super init];
     if(self){
         self.name = name;
         self.filename = filename;
+        self.fileType = type;
     }
     return self;
 }
 
 - (void) toString{
-    NSLog(@"Sound Object:\n\tname:%@\n\filename:%@\n",
-          self.name, self.filename);
+    NSLog(@"Sound Object:\n\tname:%@\n\filename:%@.%@\n",
+          self.name, self.filename, self.fileType);
 }
 
 @end

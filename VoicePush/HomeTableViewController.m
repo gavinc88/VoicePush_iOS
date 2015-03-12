@@ -12,6 +12,8 @@
 #import "SoundTableViewCell.h"
 #import "Sound.h"
 #import "SoundLibrary.h"
+#import <AudioToolbox/AudioToolbox.h>
+
 
 @interface HomeTableViewController ()
 
@@ -21,6 +23,8 @@
 @end
 
 @implementation HomeTableViewController
+
+SystemSoundID mySoundID; //used to play selected sound
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,6 +84,19 @@
     } else {
         self.selectedIndex = indexPath.row;
     }
+    
+    // Dispose of the sound
+    AudioServicesDisposeSystemSoundID(mySoundID);
+    
+    // Create the sound ID
+    Sound *currentSound = [self.mySounds objectAtIndex:indexPath.row];
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:currentSound.filename ofType:currentSound.fileType];
+    NSURL *pewPewURL = [NSURL fileURLWithPath:soundPath];
+    
+    // Play the sound
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &mySoundID);
+    AudioServicesPlaySystemSound(mySoundID);
+    
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
     [self.tableView reloadData];

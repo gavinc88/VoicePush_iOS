@@ -154,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861CEE271AAEA3B1004C221C /* AudioToolbox.framework in Frameworks */,
 				861CEE3B1AAEA435004C221C /* libsqlite3.dylib in Frameworks */,
 				861CEE391AAEA42A004C221C /* libz.dylib in Frameworks */,
 				861CEE371AAEA41A004C221C /* SystemConfiguration.framework in Frameworks */,
@@ -164,7 +165,6 @@
 				861CEE2D1AAEA3D5004C221C /* CoreLocation.framework in Frameworks */,
 				861CEE2B1AAEA3CA004C221C /* CoreGraphics.framework in Frameworks */,
 				861CEE291AAEA3BC004C221C /* CFNetwork.framework in Frameworks */,
-				861CEE271AAEA3B1004C221C /* AudioToolbox.framework in Frameworks */,
 				861CEE221AAEA387004C221C /* Parse.framework in Frameworks */,
 				861CEE231AAEA387004C221C /* ParseCrashReporting.framework in Frameworks */,
 				861CEE251AAEA387004C221C /* ParseUI.framework in Frameworks */,
@@ -230,8 +230,6 @@
 				861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */,
 				861CEE521AAEBBFB004C221C /* ShopTableViewController.h */,
 				861CEE531AAEBBFB004C221C /* ShopTableViewController.m */,
-				861CEE591AAEC33A004C221C /* Sound.h */,
-				861CEE5A1AAEC33A004C221C /* Sound.m */,
 				861CF24E1AAFAC6E004C221C /* Helper.h */,
 				861CF24F1AAFAC6E004C221C /* Helper.m */,
 				861CF2681AB0433A004C221C /* SoundTableViewCell.h */,
@@ -303,6 +301,8 @@
 			children = (
 				861CF2641AB02907004C221C /* SoundLibrary.h */,
 				861CF2651AB02907004C221C /* SoundLibrary.m */,
+				861CEE591AAEC33A004C221C /* Sound.h */,
+				861CEE5A1AAEC33A004C221C /* Sound.m */,
 				861CF2761AB0FFC2004C221C /* audience_applause.caf */,
 				861CF2771AB0FFC2004C221C /* countdown.caf */,
 				861CF2781AB0FFC2004C221C /* do_it_again.caf */,
