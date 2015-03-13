@@ -96,22 +96,32 @@
             } else {
                 NSLog(@"User with facebook logged in!");
             }
-            NSLog(@"permissions::%@",FBSession.activeSession.permissions);
             
-            //update user display name
-            FBRequest *request = [FBRequest requestForMe];
-            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            //update user display name, fbId, email, and profile pic url
+            FBRequest *friendRequest = [FBRequest requestForGraphPath:@"me?fields=id,name,email,picture{url}"];
+            [friendRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
                     NSDictionary *userData = (NSDictionary *)result;
-                    NSString *fbUsername = userData[@"name"];
+                    //NSLog(@"userData: %@", userData);
                     NSString *fbId = userData[@"id"];
-                    user[@"displayName"] = fbUsername;
+                    NSString *name = userData[@"name"];
+                    NSString *email = userData[@"email"];
+                    NSString *url = [[[userData objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+                    
                     user[@"fbId"] = fbId;
+                    user[@"displayName"] = name;
+                    user[@"email"] = email;
+                    user[@"pictureUrl"] = url;
                     [user save];
+                    
+                    [self login];
+                } else {
+                    NSLog(@"error: %@", error);
                 }
+                
             }];
             
-            [self login];
+            
         }
     }];
     
