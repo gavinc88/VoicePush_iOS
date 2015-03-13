@@ -69,7 +69,7 @@
 
 - (IBAction)facebookLoginButtonPressed:(id)sender {
     // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_about_me", @"email", @"user_birthday", @"user_friends"];
+    NSArray *permissionsArray = @[ @"user_about_me", @"email", @"user_friends"];
     
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
@@ -96,6 +96,7 @@
             } else {
                 NSLog(@"User with facebook logged in!");
             }
+            NSLog(@"permissions::%@",FBSession.activeSession.permissions);
             
             //update user display name
             FBRequest *request = [FBRequest requestForMe];
@@ -103,7 +104,9 @@
                 if (!error) {
                     NSDictionary *userData = (NSDictionary *)result;
                     NSString *fbUsername = userData[@"name"];
+                    NSString *fbId = userData[@"id"];
                     user[@"displayName"] = fbUsername;
+                    user[@"fbId"] = fbId;
                     [user save];
                 }
             }];
@@ -118,8 +121,8 @@
 
 - (void)login {
     //TODO: clear them after testing
-    self.usernameTextField.text = @"gavinc88";
-    self.passwordTextField.text = @"test";
+    self.usernameTextField.text = @"";
+    self.passwordTextField.text = @"";
     
     //register user to PFInstallation
     PFInstallation *installation = [PFInstallation currentInstallation];

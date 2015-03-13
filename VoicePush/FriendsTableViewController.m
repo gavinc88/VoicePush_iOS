@@ -37,7 +37,7 @@
             NSLog(@"Successfully retrieved %lu users.", (unsigned long)objects.count);
             if (objects.count) {
                 for (PFUser *object in objects) {
-                    NSLog(@"%@", object.objectId);
+                    //NSLog(@"%@", object.objectId);
                     if (![object.objectId isEqualToString:[PFUser currentUser].objectId]) {
                         [self.myFriends addObject:object];
                     }
