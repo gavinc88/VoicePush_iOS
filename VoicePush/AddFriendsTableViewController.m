@@ -10,12 +10,15 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "FBUser.h"
+#import "AddUserTableViewCell.h"
 
 @implementation AddFriendsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.rowHeight = 50;
     [self fetchFBFriends];
 }
 
@@ -34,17 +37,37 @@
 //        
 //    }];
     
-    FBRequest *friendRequest = [FBRequest requestForGraphPath:@"me/friends?fields=name,picture"];
+    FBRequest *friendRequest = [FBRequest requestForGraphPath:@"me/friends?fields=name,picture{url}"];
     [friendRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        NSArray *data = [result objectForKey:@"data"];
-        NSLog(@"%@", result);
-        for (FBGraphObject<FBGraphUser> *friend in data) {
-            [self.fbFriends addObject:friend];
+        
+        if (!error) {
+            NSArray *data = [result objectForKey:@"data"];
+            NSLog(@"%@", result);
+            for (FBGraphObject<FBGraphUser> *friend in data) {
+                // Get FB User info
+                NSString *fbId = friend.objectID;
+                NSString *name = friend.name;
+                NSString *url = [[[friend objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+                
+                FBUser *fbUser = [[FBUser alloc] initWithId:fbId name:name url:url];
+                [self.fbFriends addObject:fbUser];
+            }
+            
+            [self.tableView reloadData];
         }
         
-        [self.tableView reloadData];
     }];
     
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name beginswith[c] %@", searchText];
+    self.searchResults = [self.fbFriends filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterContentForSearchText:searchString scope:[[controller.searchBar scopeButtonTitles] objectAtIndex:[controller.searchBar selectedScopeButtonIndex]]];
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -54,15 +77,31 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fbFriends count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+    } else {
+        return [self.fbFriends count];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fbFriendidentifier" forIndexPath:indexPath];
+    AddUserTableViewCell *cell = (AddUserTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"fbFriendIdentifier" ];
+    if (cell == nil) {
+        cell = [[AddUserTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fbFriendIdentifier" ];
+    }
     
-    FBGraphObject *currentFacebookFriend = [self.fbFriends objectAtIndex:indexPath.row];
+    FBUser *currentFacebookFriend = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        currentFacebookFriend = [self.searchResults objectAtIndex:indexPath.row];
+    } else {
+        currentFacebookFriend = [self.fbFriends objectAtIndex:indexPath.row];
+    }
     
-    cell.textLabel.text = [currentFacebookFriend objectForKey:@"name"];
+    cell.name.text = currentFacebookFriend.name;
     
     return cell;
 }

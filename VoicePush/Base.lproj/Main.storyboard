@@ -403,19 +403,51 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fbFriendidentifier" textLabel="6Go-Zh-S9X" style="IBUITableViewCellStyleDefault" id="CCz-4F-Ui0">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="fbFriendIdentifier" rowHeight="50" id="CCz-4F-Ui0" customClass="AddUserTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CCz-4F-Ui0" id="8DA-Ze-bBu">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Go-Zh-S9X">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ni2-7I-hf1">
+                                            <rect key="frame" x="58" y="14" width="468" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXt-ce-hC1">
+                                            <rect key="frame" x="534" y="10" width="50" height="30"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="7hL-C9-jtS"/>
+                                            </constraints>
+                                            <state key="normal" title="Add">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Clv-fh-bIB">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="MWM-bc-mFv"/>
+                                                <constraint firstAttribute="width" constant="50" id="Ne9-73-aEr"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="VXt-ce-hC1" secondAttribute="centerY" id="1yS-7O-juZ"/>
+                                        <constraint firstAttribute="centerY" secondItem="Ni2-7I-hf1" secondAttribute="centerY" id="7dk-Nj-leq"/>
+                                        <constraint firstItem="Ni2-7I-hf1" firstAttribute="leading" secondItem="Clv-fh-bIB" secondAttribute="trailing" constant="8" id="JPb-x1-4o7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="VXt-ce-hC1" secondAttribute="trailing" constant="8" id="aJY-S1-3zy"/>
+                                        <constraint firstItem="Clv-fh-bIB" firstAttribute="leading" secondItem="8DA-Ze-bBu" secondAttribute="leadingMargin" constant="-8" id="rnJ-vl-zIr"/>
+                                        <constraint firstItem="VXt-ce-hC1" firstAttribute="leading" secondItem="Ni2-7I-hf1" secondAttribute="trailing" constant="8" id="wPB-AX-az4"/>
+                                        <constraint firstAttribute="centerY" secondItem="Clv-fh-bIB" secondAttribute="centerY" id="wT1-s5-gkk"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addButton" destination="VXt-ce-hC1" id="zYs-8v-3fa"/>
+                                    <outlet property="name" destination="Ni2-7I-hf1" id="hoO-bI-Vv0"/>
+                                    <outlet property="profilePicture" destination="Clv-fh-bIB" id="j3e-f6-462"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

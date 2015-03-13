@@ -61,6 +61,8 @@
 		861CF29D1AB10087004C221C /* moon_space_blaster.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29C1AB10087004C221C /* moon_space_blaster.caf */; };
 		861CF2A01AB146E5004C221C /* ShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */; };
 		861CF2A31AB25485004C221C /* AddFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF2A21AB25485004C221C /* AddFriendsTableViewController.m */; };
+		864D3C291AB2CBB900F42A05 /* FBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 864D3C281AB2CBB900F42A05 /* FBUser.m */; };
+		864D3C2C1AB2D87800F42A05 /* AddUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */; };
 		DBCF3F7F3F29E91C648463D3 /* libPods-VoicePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +151,10 @@
 		861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCollectionViewController.m; sourceTree = "<group>"; };
 		861CF2A11AB25485004C221C /* AddFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendsTableViewController.h; sourceTree = "<group>"; };
 		861CF2A21AB25485004C221C /* AddFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendsTableViewController.m; sourceTree = "<group>"; };
+		864D3C271AB2CBB900F42A05 /* FBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBUser.h; sourceTree = "<group>"; };
+		864D3C281AB2CBB900F42A05 /* FBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBUser.m; sourceTree = "<group>"; };
+		864D3C2A1AB2D87800F42A05 /* AddUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserTableViewCell.h; sourceTree = "<group>"; };
+		864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserTableViewCell.m; sourceTree = "<group>"; };
 		E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoicePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +245,10 @@
 				861CF2691AB0433A004C221C /* SoundTableViewCell.m */,
 				861CF29E1AB146E5004C221C /* ShopCollectionViewController.h */,
 				861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */,
+				864D3C271AB2CBB900F42A05 /* FBUser.h */,
+				864D3C281AB2CBB900F42A05 /* FBUser.m */,
+				864D3C2A1AB2D87800F42A05 /* AddUserTableViewCell.h */,
+				864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */,
 			);
 			path = VoicePush;
 			sourceTree = "<group>";
@@ -501,10 +511,12 @@
 				861CF2A01AB146E5004C221C /* ShopCollectionViewController.m in Sources */,
 				861CF26D1AB0498D004C221C /* AddMessageViewController.m in Sources */,
 				861CEDFE1AAE9A90004C221C /* LoginViewController.m in Sources */,
+				864D3C2C1AB2D87800F42A05 /* AddUserTableViewCell.m in Sources */,
 				861CF2661AB02907004C221C /* SoundLibrary.m in Sources */,
 				861CEE5B1AAEC33A004C221C /* Sound.m in Sources */,
 				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
+				864D3C291AB2CBB900F42A05 /* FBUser.m in Sources */,
 				861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */,
 				861CF2501AAFAC6E004C221C /* Helper.m in Sources */,
 				861CEDFB1AAE9A90004C221C /* AppDelegate.m in Sources */,

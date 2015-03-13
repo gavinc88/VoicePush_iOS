@@ -11,5 +11,6 @@
 @interface AddFriendsTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *fbFriends;
+@property (nonatomic, strong) NSArray *searchResults;
 
 @end
