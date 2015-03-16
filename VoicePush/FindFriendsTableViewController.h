@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFriendsTableViewController : UITableViewController
+@interface FindFriendsTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *fbFriends;
+@property (nonatomic, strong) NSMutableArray *ignoreList;
 @property (nonatomic, strong) NSArray *searchResults;
 
 @end

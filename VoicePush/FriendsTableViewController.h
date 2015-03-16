@@ -11,6 +11,7 @@
 @interface FriendsTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *myFriends;
-@property (strong, nonatomic) NSMutableArray *myFriendRequests;
+@property (strong, nonatomic) NSMutableArray *myFriendRequests; //my requests to others
+@property (strong, nonatomic) NSMutableArray *myPendingFriendRequests; //pending requests from others
 
 @end

@@ -60,8 +60,11 @@
 		861CF29B1AB10050004C221C /* where_are_you.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29A1AB10050004C221C /* where_are_you.caf */; };
 		861CF29D1AB10087004C221C /* moon_space_blaster.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29C1AB10087004C221C /* moon_space_blaster.caf */; };
 		861CF2A01AB146E5004C221C /* ShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */; };
-		861CF2A31AB25485004C221C /* AddFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF2A21AB25485004C221C /* AddFriendsTableViewController.m */; };
+		861CF2A31AB25485004C221C /* FindFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF2A21AB25485004C221C /* FindFriendsTableViewController.m */; };
 		864D3C2C1AB2D87800F42A05 /* AddUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */; };
+		86CB407F1AB3A03600B0A7EC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB407E1AB3A03600B0A7EC /* Constants.m */; };
+		86CB40831AB3B9D000B0A7EC /* FriendRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB40821AB3B9D000B0A7EC /* FriendRequestTableViewCell.m */; };
+		86CB40861AB3B9E500B0A7EC /* MyRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB40851AB3B9E500B0A7EC /* MyRequestTableViewCell.m */; };
 		DBCF3F7F3F29E91C648463D3 /* libPods-VoicePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E51C9AC15E550C86100DE47 /* libPods-VoicePush.a */; };
 /* End PBXBuildFile section */
 
@@ -148,10 +151,16 @@
 		861CF29C1AB10087004C221C /* moon_space_blaster.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = moon_space_blaster.caf; path = Sound/moon_space_blaster.caf; sourceTree = SOURCE_ROOT; };
 		861CF29E1AB146E5004C221C /* ShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCollectionViewController.h; sourceTree = "<group>"; };
 		861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCollectionViewController.m; sourceTree = "<group>"; };
-		861CF2A11AB25485004C221C /* AddFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendsTableViewController.h; sourceTree = "<group>"; };
-		861CF2A21AB25485004C221C /* AddFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendsTableViewController.m; sourceTree = "<group>"; };
+		861CF2A11AB25485004C221C /* FindFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindFriendsTableViewController.h; sourceTree = "<group>"; };
+		861CF2A21AB25485004C221C /* FindFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFriendsTableViewController.m; sourceTree = "<group>"; };
 		864D3C2A1AB2D87800F42A05 /* AddUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserTableViewCell.h; sourceTree = "<group>"; };
 		864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserTableViewCell.m; sourceTree = "<group>"; };
+		86CB407E1AB3A03600B0A7EC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		86CB40801AB3A04600B0A7EC /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		86CB40811AB3B9D000B0A7EC /* FriendRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendRequestTableViewCell.h; sourceTree = "<group>"; };
+		86CB40821AB3B9D000B0A7EC /* FriendRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendRequestTableViewCell.m; sourceTree = "<group>"; };
+		86CB40841AB3B9E500B0A7EC /* MyRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRequestTableViewCell.h; sourceTree = "<group>"; };
+		86CB40851AB3B9E500B0A7EC /* MyRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRequestTableViewCell.m; sourceTree = "<group>"; };
 		E2A0A838925553D25C8B4707 /* Pods-VoicePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoicePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoicePush/Pods-VoicePush.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,8 +241,8 @@
 				861CEE4D1AAEBBE7004C221C /* SelectFriendsTableViewController.m */,
 				861CEE491AAEBBC2004C221C /* FriendsTableViewController.h */,
 				861CEE4A1AAEBBC2004C221C /* FriendsTableViewController.m */,
-				861CF2A11AB25485004C221C /* AddFriendsTableViewController.h */,
-				861CF2A21AB25485004C221C /* AddFriendsTableViewController.m */,
+				861CF2A11AB25485004C221C /* FindFriendsTableViewController.h */,
+				861CF2A21AB25485004C221C /* FindFriendsTableViewController.m */,
 				861CEE4F1AAEBBF1004C221C /* SettingsTableViewController.h */,
 				861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */,
 				861CF24E1AAFAC6E004C221C /* Helper.h */,
@@ -244,6 +253,12 @@
 				861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */,
 				864D3C2A1AB2D87800F42A05 /* AddUserTableViewCell.h */,
 				864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */,
+				86CB40801AB3A04600B0A7EC /* Constants.h */,
+				86CB407E1AB3A03600B0A7EC /* Constants.m */,
+				86CB40811AB3B9D000B0A7EC /* FriendRequestTableViewCell.h */,
+				86CB40821AB3B9D000B0A7EC /* FriendRequestTableViewCell.m */,
+				86CB40841AB3B9E500B0A7EC /* MyRequestTableViewCell.h */,
+				86CB40851AB3B9E500B0A7EC /* MyRequestTableViewCell.m */,
 			);
 			path = VoicePush;
 			sourceTree = "<group>";
@@ -500,18 +515,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86CB40861AB3B9E500B0A7EC /* MyRequestTableViewCell.m in Sources */,
 				861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */,
-				861CF2A31AB25485004C221C /* AddFriendsTableViewController.m in Sources */,
+				861CF2A31AB25485004C221C /* FindFriendsTableViewController.m in Sources */,
 				861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */,
 				861CF2A01AB146E5004C221C /* ShopCollectionViewController.m in Sources */,
 				861CF26D1AB0498D004C221C /* AddMessageViewController.m in Sources */,
 				861CEDFE1AAE9A90004C221C /* LoginViewController.m in Sources */,
 				864D3C2C1AB2D87800F42A05 /* AddUserTableViewCell.m in Sources */,
 				861CF2661AB02907004C221C /* SoundLibrary.m in Sources */,
+				86CB407F1AB3A03600B0A7EC /* Constants.m in Sources */,
 				861CEE5B1AAEC33A004C221C /* Sound.m in Sources */,
 				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
 				861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */,
+				86CB40831AB3B9D000B0A7EC /* FriendRequestTableViewCell.m in Sources */,
 				861CF2501AAFAC6E004C221C /* Helper.m in Sources */,
 				861CEDFB1AAE9A90004C221C /* AppDelegate.m in Sources */,
 				861CEDF81AAE9A90004C221C /* main.m in Sources */,
