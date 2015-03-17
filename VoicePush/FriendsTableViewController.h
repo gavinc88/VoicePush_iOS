@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) NSMutableArray *myFriends;
 @property (strong, nonatomic) NSMutableArray *myFriendRequests; //my requests to others
-@property (strong, nonatomic) NSMutableArray *myPendingFriendRequests; //pending requests from others
+@property (strong, nonatomic) NSMutableArray *myPendingFriendRequestsFromOthers; //pending requests from others
 
 @end

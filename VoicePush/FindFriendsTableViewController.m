@@ -221,4 +221,8 @@ NSString * const ADD_BUTTON = @"Add";
     }];
 }
 
+- (IBAction)doneButtonClicked:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

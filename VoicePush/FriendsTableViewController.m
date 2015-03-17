@@ -19,10 +19,12 @@
 
 @implementation FriendsTableViewController
 
+NSIndexPath *alertIndexPath;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initializeMyFriends];
+    //[self initializeMyFriends];
     
     // Initialize the refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -33,6 +35,12 @@
                   forControlEvents:UIControlEventValueChanged];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self initializeMyFriends];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -41,7 +49,7 @@
 - (void)initializeMyFriends {
     self.myFriends = [[NSMutableArray alloc] init];
     self.myFriendRequests = [[NSMutableArray alloc] init];
-    self.myPendingFriendRequests = [[NSMutableArray alloc] init];
+    self.myPendingFriendRequestsFromOthers = [[NSMutableArray alloc] init];
     
     // Get your list of Friends
     PFQuery *getFriends = [PFQuery queryWithClassName:@"Friends"];
@@ -68,7 +76,7 @@
                     NSString *toId = [toUser objectId];
                     NSString *toDisplayName = relation[@"toDisplayName"];
                     NSString *toFbId = relation[@"toFbId"];
-                    NSLog(@"from %@   to %@  for user %@ ",fromDisplayName,toDisplayName,currentUserId);
+                    NSLog(@"from %@   to %@  with status %@ ",fromDisplayName,toDisplayName,relation[@"status"]);
                     
                     if ([fromId isEqualToString:currentUserId]) {
                         if ([relation[@"status"] isEqualToString:PENDING]) {
@@ -80,7 +88,7 @@
                         }
                     } else if ([toId isEqualToString:currentUserId]) {
                         if ([relation[@"status"] isEqualToString:PENDING]) {
-                            [self.myPendingFriendRequests addObject:@[fromUser,fromDisplayName,fromFbId]];
+                            [self.myPendingFriendRequestsFromOthers addObject:@[fromUser,fromDisplayName,fromFbId]];
                         }                        
                     }
                 }
@@ -104,7 +112,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return [self.myPendingFriendRequests count];
+        return [self.myPendingFriendRequestsFromOthers count];
     } else if (section == 1) {
         return [self.myFriendRequests count];
     } else if (section == 2) {
@@ -114,7 +122,7 @@
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0 && [self.myPendingFriendRequests count]) {
+    if (section == 0 && [self.myPendingFriendRequestsFromOthers count]) {
         return @"Friend Requests";
     } else if (section == 1 && [self.myFriendRequests count]) {
         return @"Waiting for Response";
@@ -127,7 +135,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *currentFriend = nil;
     if (indexPath.section == 0) {
-        currentFriend = [self.myPendingFriendRequests objectAtIndex:indexPath.row];
+        currentFriend = [self.myPendingFriendRequestsFromOthers objectAtIndex:indexPath.row];
         
         FriendRequestTableViewCell *cell = (FriendRequestTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"friendrequestidentifier" ];
         if (cell == nil) {
@@ -158,9 +166,54 @@
     return nil;
 }
 
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        alertIndexPath = indexPath;
+        if (indexPath.section == 1) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Deleting Friend Request" message:[NSString stringWithFormat:@"Are you sure you want to delete your friend request to %@?", [self.myFriendRequests objectAtIndex:indexPath.row][1]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+            [alert show];
+        } else if (indexPath.section == 2) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Removing Friend" message:[NSString stringWithFormat:@"Are you sure you want to remove %@ from your friend list?", [self.myFriends objectAtIndex:indexPath.row][1]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+            [alert show];
+        }
+        
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self.tableView setEditing:NO animated:YES];
+    } else if (buttonIndex == 1) {
+        if (alertIndexPath.section == 1) {
+            PFUser *myFriendRequest = [self.myFriendRequests objectAtIndex:alertIndexPath.row][0];
+            [self removeFriendRequest:myFriendRequest];
+            [self.myFriendRequests removeObjectAtIndex:alertIndexPath.row];
+            [self.tableView deleteRowsAtIndexPaths:@[alertIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        } else if (alertIndexPath.section == 2) {
+            PFUser *myFriend = [self.myFriends objectAtIndex:alertIndexPath.row][0];
+            [self removeFriend:myFriend];
+            [self.myFriends removeObjectAtIndex:alertIndexPath.row];
+            [self.tableView deleteRowsAtIndexPaths:@[alertIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
+}
+
+#pragma mark - Button Actions
+
 - (IBAction)acceptButtonClicked:(UIButton *)sender {
     NSLog(@"accept clicked");
-    NSArray *requestedFriendArray = [self.myPendingFriendRequests objectAtIndex:sender.tag];
+    NSArray *requestedFriendArray = [self.myPendingFriendRequestsFromOthers objectAtIndex:sender.tag];
     PFUser *requestedFriend = requestedFriendArray[0];
     NSString *requestedFriendDisplayName = requestedFriendArray[1];
     NSString *requestedFriendFbId = requestedFriendArray[2];
@@ -235,7 +288,7 @@
 
 - (IBAction)rejectButtonClicked:(UIButton *)sender {
     NSLog(@"reject clicked");
-    NSArray *requestedFriendArray = [self.myPendingFriendRequests objectAtIndex:sender.tag];
+    NSArray *requestedFriendArray = [self.myPendingFriendRequestsFromOthers objectAtIndex:sender.tag];
     PFUser *requestedFriend = requestedFriendArray[0];
     
     /// Retrieve Friend relations
@@ -265,40 +318,56 @@
     }];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)removeFriendRequest:(PFUser *)friend {
+    // Delete friend request
+    PFQuery *query = [PFQuery queryWithClassName:@"Friends"];
+    [query whereKey:@"from" equalTo:[PFUser currentUser]];
+    [query whereKey:@"to" equalTo:friend];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+        if (!error) {
+            if ([results count]) {
+                PFObject *existingRelation = [results objectAtIndex:0];
+                [existingRelation deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        NSLog(@"delete success");
+                    } else {
+                        NSLog(@"delete error: %@", error);
+                    }
+                }];
+            }
+        } else {
+            NSLog(@"remove friend request error: %@", error);
+        }
+    }];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)removeFriend:(PFUser *)friend {
+    //Delete Friend relationship from both direction
+    
+    PFQuery *fromYou = [PFQuery queryWithClassName:@"Friends"];
+    [fromYou whereKey:@"from" equalTo:[PFUser currentUser]];
+    [fromYou whereKey:@"to" equalTo:friend];
+    
+    PFQuery *toYou = [PFQuery queryWithClassName:@"Friends"];
+    [toYou whereKey:@"from" equalTo:friend];
+    [toYou whereKey:@"to" equalTo:[PFUser currentUser]];
+    
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[fromYou,toYou]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+        if (!error) {
+            if (results.count == 2) {
+                NSLog(@"Successfully deleted 2 Friends relations");
+                PFObject *friendRelation1 = [results objectAtIndex:0];
+                PFObject *friendRelation2 = [results objectAtIndex:1];
+                [PFObject deleteAllInBackground:@[friendRelation1, friendRelation2]];
+            } else {
+                NSLog(@"did not find relationship from both direction");
+            }
+        } else {
+            NSLog(@"remove friend error: %@", error);
+        }
+    }];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 
@@ -315,7 +384,7 @@
         for (NSArray * myFriend in self.myFriendRequests) {
             [dest.ignoreList addObject:myFriend[2]];
         }
-        for (NSArray * myFriend in self.myPendingFriendRequests) {
+        for (NSArray * myFriend in self.myPendingFriendRequestsFromOthers) {
             [dest.ignoreList addObject:myFriend[2]];
         }
     }
