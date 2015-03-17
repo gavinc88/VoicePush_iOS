@@ -184,6 +184,7 @@ NSString * const ADD_BUTTON = @"Add";
                     if (succeeded) {
                         NSLog(@"Add success");
                         [self.justAddedFriends addObject:selectedFacebookFriend[@"fbId"]];
+                        
                         [self.tableView reloadData];
                         [self.searchDisplayController.searchResultsTableView reloadData];
                     } else {
@@ -235,6 +236,34 @@ NSString * const ADD_BUTTON = @"Add";
 }
 
 - (IBAction)doneButtonClicked:(UIBarButtonItem *)sender {
+    // Send push notification to added users
+    
+    // Get PFUsers of selected
+    NSMutableArray *addedPFUsers = [[NSMutableArray alloc] init];
+    for (PFUser *user in self.fbFriends) {
+        if ([self.justAddedFriends containsObject:user[@"fbId"]]) {
+            [addedPFUsers addObject:user];
+        }
+    }
+    
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey: @"user" containedIn: addedPFUsers];
+    
+    NSString *message = [NSString stringWithFormat:@"%@ wants to add you as a friend.", [[PFUser currentUser] objectForKey:@"displayName"]];
+    
+    NSString *filePath = @"default.caf"; //to be added
+    
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                          message, @"alert",
+                          filePath, @"sound",
+                          nil];
+    
+    // Send the notification.
+    PFPush *push = [[PFPush alloc] init];
+    [push setQuery:pushQuery];
+    [push setData:data];
+    [push sendPushInBackground];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
