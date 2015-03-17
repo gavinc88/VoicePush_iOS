@@ -59,9 +59,9 @@
 		861CF2991AB0FFC2004C221C /* whistle.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF2871AB0FFC2004C221C /* whistle.caf */; };
 		861CF29B1AB10050004C221C /* where_are_you.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29A1AB10050004C221C /* where_are_you.caf */; };
 		861CF29D1AB10087004C221C /* moon_space_blaster.caf in Resources */ = {isa = PBXBuildFile; fileRef = 861CF29C1AB10087004C221C /* moon_space_blaster.caf */; };
-		861CF2A01AB146E5004C221C /* ShopCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */; };
 		861CF2A31AB25485004C221C /* FindFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF2A21AB25485004C221C /* FindFriendsTableViewController.m */; };
 		864D3C2C1AB2D87800F42A05 /* AddUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */; };
+		8662D29A1AB806AA0076AD2E /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D2991AB806AA0076AD2E /* Friend.m */; };
 		86CB407F1AB3A03600B0A7EC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB407E1AB3A03600B0A7EC /* Constants.m */; };
 		86CB40831AB3B9D000B0A7EC /* FriendRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB40821AB3B9D000B0A7EC /* FriendRequestTableViewCell.m */; };
 		86CB40861AB3B9E500B0A7EC /* MyRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB40851AB3B9E500B0A7EC /* MyRequestTableViewCell.m */; };
@@ -149,12 +149,12 @@
 		861CF2871AB0FFC2004C221C /* whistle.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = whistle.caf; path = Sound/whistle.caf; sourceTree = SOURCE_ROOT; };
 		861CF29A1AB10050004C221C /* where_are_you.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = where_are_you.caf; path = Sound/where_are_you.caf; sourceTree = SOURCE_ROOT; };
 		861CF29C1AB10087004C221C /* moon_space_blaster.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = moon_space_blaster.caf; path = Sound/moon_space_blaster.caf; sourceTree = SOURCE_ROOT; };
-		861CF29E1AB146E5004C221C /* ShopCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCollectionViewController.h; sourceTree = "<group>"; };
-		861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCollectionViewController.m; sourceTree = "<group>"; };
 		861CF2A11AB25485004C221C /* FindFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindFriendsTableViewController.h; sourceTree = "<group>"; };
 		861CF2A21AB25485004C221C /* FindFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindFriendsTableViewController.m; sourceTree = "<group>"; };
 		864D3C2A1AB2D87800F42A05 /* AddUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserTableViewCell.h; sourceTree = "<group>"; };
 		864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserTableViewCell.m; sourceTree = "<group>"; };
+		8662D2981AB806AA0076AD2E /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		8662D2991AB806AA0076AD2E /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
 		86CB407E1AB3A03600B0A7EC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		86CB40801AB3A04600B0A7EC /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		86CB40811AB3B9D000B0A7EC /* FriendRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendRequestTableViewCell.h; sourceTree = "<group>"; };
@@ -225,11 +225,16 @@
 				861CEE3D1AAEB342004C221C /* Sound */,
 				861CEDF91AAE9A90004C221C /* AppDelegate.h */,
 				861CEDFA1AAE9A90004C221C /* AppDelegate.m */,
+				8662D29B1AB806F00076AD2E /* Model */,
 				861CEDFC1AAE9A90004C221C /* LoginViewController.h */,
 				861CEDFD1AAE9A90004C221C /* LoginViewController.m */,
 				861CEDFF1AAE9A90004C221C /* Main.storyboard */,
 				861CEE021AAE9A90004C221C /* Images.xcassets */,
 				861CEE041AAE9A90004C221C /* LaunchScreen.xib */,
+				86CB40801AB3A04600B0A7EC /* Constants.h */,
+				86CB407E1AB3A03600B0A7EC /* Constants.m */,
+				861CF24E1AAFAC6E004C221C /* Helper.h */,
+				861CF24F1AAFAC6E004C221C /* Helper.m */,
 				861CEDF51AAE9A90004C221C /* Supporting Files */,
 				861CF24B1AAEF929004C221C /* MainTabBarController.h */,
 				861CF24C1AAEF929004C221C /* MainTabBarController.m */,
@@ -245,16 +250,10 @@
 				861CF2A21AB25485004C221C /* FindFriendsTableViewController.m */,
 				861CEE4F1AAEBBF1004C221C /* SettingsTableViewController.h */,
 				861CEE501AAEBBF1004C221C /* SettingsTableViewController.m */,
-				861CF24E1AAFAC6E004C221C /* Helper.h */,
-				861CF24F1AAFAC6E004C221C /* Helper.m */,
 				861CF2681AB0433A004C221C /* SoundTableViewCell.h */,
 				861CF2691AB0433A004C221C /* SoundTableViewCell.m */,
-				861CF29E1AB146E5004C221C /* ShopCollectionViewController.h */,
-				861CF29F1AB146E5004C221C /* ShopCollectionViewController.m */,
 				864D3C2A1AB2D87800F42A05 /* AddUserTableViewCell.h */,
 				864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */,
-				86CB40801AB3A04600B0A7EC /* Constants.h */,
-				86CB407E1AB3A03600B0A7EC /* Constants.m */,
 				86CB40811AB3B9D000B0A7EC /* FriendRequestTableViewCell.h */,
 				86CB40821AB3B9D000B0A7EC /* FriendRequestTableViewCell.m */,
 				86CB40841AB3B9E500B0A7EC /* MyRequestTableViewCell.h */,
@@ -326,8 +325,6 @@
 			children = (
 				861CF2641AB02907004C221C /* SoundLibrary.h */,
 				861CF2651AB02907004C221C /* SoundLibrary.m */,
-				861CEE591AAEC33A004C221C /* Sound.h */,
-				861CEE5A1AAEC33A004C221C /* Sound.m */,
 				861CF2761AB0FFC2004C221C /* audience_applause.caf */,
 				861CF2771AB0FFC2004C221C /* countdown.caf */,
 				861CF2781AB0FFC2004C221C /* do_it_again.caf */,
@@ -349,6 +346,17 @@
 				861CF2871AB0FFC2004C221C /* whistle.caf */,
 			);
 			name = Sound;
+			sourceTree = "<group>";
+		};
+		8662D29B1AB806F00076AD2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				861CEE591AAEC33A004C221C /* Sound.h */,
+				861CEE5A1AAEC33A004C221C /* Sound.m */,
+				8662D2981AB806AA0076AD2E /* Friend.h */,
+				8662D2991AB806AA0076AD2E /* Friend.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		A721CEAA2F02AD76C56DD11A /* Pods */ = {
@@ -524,13 +532,13 @@
 				861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */,
 				861CF2A31AB25485004C221C /* FindFriendsTableViewController.m in Sources */,
 				861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */,
-				861CF2A01AB146E5004C221C /* ShopCollectionViewController.m in Sources */,
 				861CF26D1AB0498D004C221C /* AddMessageViewController.m in Sources */,
 				861CEDFE1AAE9A90004C221C /* LoginViewController.m in Sources */,
 				864D3C2C1AB2D87800F42A05 /* AddUserTableViewCell.m in Sources */,
 				861CF2661AB02907004C221C /* SoundLibrary.m in Sources */,
 				86CB407F1AB3A03600B0A7EC /* Constants.m in Sources */,
 				861CEE5B1AAEC33A004C221C /* Sound.m in Sources */,
+				8662D29A1AB806AA0076AD2E /* Friend.m in Sources */,
 				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,
 				861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */,

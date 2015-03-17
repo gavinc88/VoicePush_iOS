@@ -9,6 +9,7 @@
 #import "FriendsTableViewController.h"
 #import <Parse/Parse.h>
 #import "Constants.h"
+#import "Friend.h"
 #import "MyRequestTableViewCell.h"
 #import "FriendRequestTableViewCell.h"
 #import "FindFriendsTableViewController.h"
@@ -80,15 +81,16 @@ NSIndexPath *alertIndexPath;
                     
                     if ([fromId isEqualToString:currentUserId]) {
                         if ([relation[@"status"] isEqualToString:PENDING]) {
-                            //NSLog(@"add toUser to pending: %@",@[toUser,toDisplayName]);
-                            [self.myFriendRequests addObject:@[toUser,toDisplayName,toFbId]];
+                            Friend *myFriend = [[Friend alloc] initWithPFUser:toUser displayName:toDisplayName facebookId:toFbId];
+                            [self.myFriendRequests addObject:myFriend];
                         } else if ([relation[@"status"] isEqualToString:ACCEPTED]) {
-                            //NSLog(@"add toUser to accepted: %@",@[toUser,toDisplayName]);
-                            [self.myFriends addObject:@[toUser,toDisplayName,toFbId]];
+                            Friend *myFriend = [[Friend alloc] initWithPFUser:toUser displayName:toDisplayName facebookId:toFbId];
+                            [self.myFriends addObject:myFriend];
                         }
                     } else if ([toId isEqualToString:currentUserId]) {
                         if ([relation[@"status"] isEqualToString:PENDING]) {
-                            [self.myPendingFriendRequestsFromOthers addObject:@[fromUser,fromDisplayName,fromFbId]];
+                            Friend *myFriend = [[Friend alloc] initWithPFUser:fromUser displayName:fromDisplayName facebookId:fromFbId];
+                            [self.myPendingFriendRequestsFromOthers addObject:myFriend];
                         }                        
                     }
                 }
@@ -133,7 +135,7 @@ NSIndexPath *alertIndexPath;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *currentFriend = nil;
+    Friend *currentFriend = nil;
     if (indexPath.section == 0) {
         currentFriend = [self.myPendingFriendRequestsFromOthers objectAtIndex:indexPath.row];
         
@@ -141,7 +143,7 @@ NSIndexPath *alertIndexPath;
         if (cell == nil) {
             cell = [[FriendRequestTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"friendrequestidentifier" ];
         }
-        cell.name.text = currentFriend[1];
+        cell.name.text = currentFriend.displayName;
         cell.acceptButton.tag = indexPath.row;
         [cell.acceptButton addTarget:self action:@selector(acceptButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         cell.rejectButton.tag = indexPath.row;
@@ -154,13 +156,13 @@ NSIndexPath *alertIndexPath;
         if (cell == nil) {
             cell = [[MyRequestTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"myrequestidentifier" ];
         }
-        cell.name.text = currentFriend[1];
+        cell.name.text = currentFriend.displayName;
         return cell;
     } else if (indexPath.section == 2) {
         currentFriend = [self.myFriends objectAtIndex:indexPath.row];
         
          UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendidentifier" forIndexPath:indexPath];
-        cell.textLabel.text = currentFriend[1];
+        cell.textLabel.text = currentFriend.displayName;
         return cell;
     }
     return nil;
@@ -179,10 +181,12 @@ NSIndexPath *alertIndexPath;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         alertIndexPath = indexPath;
         if (indexPath.section == 1) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Deleting Friend Request" message:[NSString stringWithFormat:@"Are you sure you want to delete your friend request to %@?", [self.myFriendRequests objectAtIndex:indexPath.row][1]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+            Friend *editedFriend = [self.myFriendRequests objectAtIndex:indexPath.row];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Deleting Friend Request" message:[NSString stringWithFormat:@"Are you sure you want to delete your friend request to %@?", editedFriend.displayName] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
             [alert show];
         } else if (indexPath.section == 2) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Removing Friend" message:[NSString stringWithFormat:@"Are you sure you want to remove %@ from your friend list?", [self.myFriends objectAtIndex:indexPath.row][1]] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+            Friend *editedFriend = [self.myFriends objectAtIndex:indexPath.row];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Removing Friend" message:[NSString stringWithFormat:@"Are you sure you want to remove %@ from your friend list?", editedFriend.displayName] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
             [alert show];
         }
         
@@ -196,13 +200,15 @@ NSIndexPath *alertIndexPath;
         [self.tableView setEditing:NO animated:YES];
     } else if (buttonIndex == 1) {
         if (alertIndexPath.section == 1) {
-            PFUser *myFriendRequest = [self.myFriendRequests objectAtIndex:alertIndexPath.row][0];
-            [self removeFriendRequest:myFriendRequest];
+            Friend *myFriendRequest = [self.myFriendRequests objectAtIndex:alertIndexPath.row];
+            PFUser *myFriendRequestUser = myFriendRequest.parseUser;
+            [self removeFriendRequest:myFriendRequestUser];
             [self.myFriendRequests removeObjectAtIndex:alertIndexPath.row];
             [self.tableView deleteRowsAtIndexPaths:@[alertIndexPath] withRowAnimation:UITableViewRowAnimationFade];
         } else if (alertIndexPath.section == 2) {
-            PFUser *myFriend = [self.myFriends objectAtIndex:alertIndexPath.row][0];
-            [self removeFriend:myFriend];
+            Friend *myFriend = [self.myFriends objectAtIndex:alertIndexPath.row];
+            PFUser *myFriendUser = myFriend.parseUser;
+            [self removeFriend:myFriendUser];
             [self.myFriends removeObjectAtIndex:alertIndexPath.row];
             [self.tableView deleteRowsAtIndexPaths:@[alertIndexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
@@ -213,10 +219,10 @@ NSIndexPath *alertIndexPath;
 
 - (IBAction)acceptButtonClicked:(UIButton *)sender {
     NSLog(@"accept clicked");
-    NSArray *requestedFriendArray = [self.myPendingFriendRequestsFromOthers objectAtIndex:sender.tag];
-    PFUser *requestedFriend = requestedFriendArray[0];
-    NSString *requestedFriendDisplayName = requestedFriendArray[1];
-    NSString *requestedFriendFbId = requestedFriendArray[2];
+    Friend *requestedFriendObject = [self.myPendingFriendRequestsFromOthers objectAtIndex:sender.tag];
+    PFUser *requestedFriend = requestedFriendObject.parseUser;
+    NSString *requestedFriendDisplayName = requestedFriendObject.displayName;
+    NSString *requestedFriendFbId = requestedFriendObject.fbId;
     
     // Retrieve Friend relations
     PFQuery *query = [PFQuery queryWithClassName:@"Friends"];
@@ -256,6 +262,7 @@ NSIndexPath *alertIndexPath;
                 [existingRelation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
                         NSLog(@"Add success");
+                        [self initializeMyFriends];
                     } else {
                         NSLog(@"Add error: %@", error);
                     }
@@ -273,13 +280,13 @@ NSIndexPath *alertIndexPath;
                 [reverseFriendRelation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
                         NSLog(@"Reverse Add success");
+                        [self initializeMyFriends];
                     } else {
                         NSLog(@"Reverse Add error: %@", error);
                     }
                 }];
             }
             
-            [self initializeMyFriends];
         } else {
             NSLog(@"Reverse query error: %@", error);
         }
@@ -288,8 +295,8 @@ NSIndexPath *alertIndexPath;
 
 - (IBAction)rejectButtonClicked:(UIButton *)sender {
     NSLog(@"reject clicked");
-    NSArray *requestedFriendArray = [self.myPendingFriendRequestsFromOthers objectAtIndex:sender.tag];
-    PFUser *requestedFriend = requestedFriendArray[0];
+    Friend *requestedFriendObject = [self.myPendingFriendRequestsFromOthers objectAtIndex:sender.tag];
+    PFUser *requestedFriend = requestedFriendObject.parseUser;
     
     /// Retrieve Friend relations
     PFQuery *query = [PFQuery queryWithClassName:@"Friends"];
@@ -378,14 +385,14 @@ NSIndexPath *alertIndexPath;
         dest.ignoreList = [[NSMutableArray alloc]init];
         
         // Add all fbIds to ignore list
-        for (NSArray * myFriend in self.myFriends) {
-            [dest.ignoreList addObject:myFriend[2]];
+        for (Friend *myFriend in self.myFriends) {
+            [dest.ignoreList addObject:myFriend.fbId];
         }
-        for (NSArray * myFriend in self.myFriendRequests) {
-            [dest.ignoreList addObject:myFriend[2]];
+        for (Friend *myFriend in self.myFriendRequests) {
+            [dest.ignoreList addObject:myFriend.fbId];
         }
-        for (NSArray * myFriend in self.myPendingFriendRequestsFromOthers) {
-            [dest.ignoreList addObject:myFriend[2]];
+        for (Friend *myFriend in self.myPendingFriendRequestsFromOthers) {
+            [dest.ignoreList addObject:myFriend.fbId];
         }
     }
 }
