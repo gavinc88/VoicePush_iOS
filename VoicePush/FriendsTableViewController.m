@@ -98,6 +98,26 @@ NSIndexPath *alertIndexPath;
                 NSLog(@"no result");
             }
             
+            
+            // Handle empty friend list
+            if ([self.myFriends count] == 0 && [self.myFriendRequests count] == 0 && [self.myPendingFriendRequestsFromOthers count] == 0) {
+                // Display a message when the table is empty
+                UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+                
+                messageLabel.text = @"You have no friends yet. \nPlease go to the \"Friends\" tab on the home page to add friends";
+                messageLabel.textColor = [UIColor blackColor];
+                messageLabel.numberOfLines = 3;
+                messageLabel.textAlignment = NSTextAlignmentCenter;
+                messageLabel.font = [UIFont fontWithName:@"System" size:20];
+                [messageLabel sizeToFit];
+                
+                self.tableView.backgroundView = messageLabel;
+                self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            } else {
+                self.tableView.backgroundView = nil;
+                self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+            }
+            
             [self sortFriends];
             [self.tableView reloadData];
         } else {

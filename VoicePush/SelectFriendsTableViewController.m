@@ -8,6 +8,7 @@
 
 #import "SelectFriendsTableViewController.h"
 #import <Parse/Parse.h>
+#import "Constants.h"
 
 @interface SelectFriendsTableViewController ()
 
@@ -30,19 +31,59 @@
 - (void)initializeMyFriends {
     self.myFriends = [[NSMutableArray alloc] init];
     
-    PFQuery *query = [PFUser query];
-    //[query whereKey:@"username" equalTo:@"theUsernameString"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    PFQuery *myFriendRelationsQuery = [PFQuery queryWithClassName:@"Friends"];
+    [myFriendRelationsQuery whereKey:@"from" equalTo:[PFUser currentUser]];
+    [myFriendRelationsQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         if (!error) {
-            NSLog(@"Successfully retrieved %lu users.", (unsigned long)objects.count);
-            if (objects.count) {
-                for (PFUser *object in objects) {
-                    if (![object.objectId isEqualToString:[PFUser currentUser].objectId]) {
-                        [self.myFriends addObject:object];
-                    }
+            NSMutableArray *myFriendRelations = [[NSMutableArray alloc] initWithCapacity:[results count]];
+            for (PFObject *relation in results) {
+                PFUser *toFriend = relation[@"to"];
+                NSString *status = relation[@"status"];
+                if ([status isEqualToString:ACCEPTED]) {
+                    [myFriendRelations addObject:toFriend.objectId];
                 }
             }
-            [self.tableView reloadData];
+            NSLog(@"myFriendRelations: %@", myFriendRelations);
+            
+            PFQuery *userQuery = [PFUser query];
+            [userQuery whereKey:@"objectId" containedIn:myFriendRelations];
+            [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    NSLog(@"Successfully retrieved %lu users.", (unsigned long)objects.count);
+                    if (objects.count) {
+                        for (PFUser *object in objects) {
+                            if (![object.objectId isEqualToString:[PFUser currentUser].objectId]) {
+                                [self.myFriends addObject:object];
+                            }
+                        }
+                    }
+                    
+                    // Handle empty friend list
+                    if ([self.myFriends count]) {
+                        self.tableView.backgroundView = nil;
+                        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+                    } else {
+                        // Display a message when the table is empty
+                        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+                        
+                        messageLabel.text = @"You have no friends yet. \nPlease go to the \"Friends\" tab on the home page to add friends";
+                        messageLabel.textColor = [UIColor blackColor];
+                        messageLabel.numberOfLines = 3;
+                        messageLabel.textAlignment = NSTextAlignmentCenter;
+                        messageLabel.font = [UIFont fontWithName:@"System" size:20];
+                        [messageLabel sizeToFit];
+                        
+                        self.tableView.backgroundView = messageLabel;
+                        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+                    }
+                    
+                    [self.tableView reloadData];
+                } else {
+                    NSLog(@"get friend users error: %@", error);
+                }
+            }];
+        } else {
+            NSLog(@"get friend relations error: %@", error);
         }
     }];
     
