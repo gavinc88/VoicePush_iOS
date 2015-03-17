@@ -13,9 +13,15 @@
 #import "AddUserTableViewCell.h"
 #import "Constants.h"
 
+@interface FindFriendsTableViewController ()
+
+@property NSMutableArray *justAddedFriends;
+
+@end
+
 @implementation FindFriendsTableViewController
 
-NSString * const PENDING_BUTTON = @"Pending";
+NSString * const CANCEL_BUTTON = @"Cancel";
 NSString * const ADD_BUTTON = @"Add";
 
 - (void)viewDidLoad {
@@ -23,6 +29,7 @@ NSString * const ADD_BUTTON = @"Add";
     
     self.tableView.rowHeight = 50;
     [self fetchFBFriends];
+    self.justAddedFriends = [[NSMutableArray alloc] init];
 }
 
 - (void)fetchFBFriends {
@@ -94,8 +101,6 @@ NSString * const ADD_BUTTON = @"Add";
         cell = [[AddUserTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fbFriendIdentifier" ];
     }
     
-    //[parseUser[@"status"] isEqualToString:PENDING]
-    
     PFUser *currentFacebookFriend = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         currentFacebookFriend = [self.searchResults objectAtIndex:indexPath.row];
@@ -104,8 +109,19 @@ NSString * const ADD_BUTTON = @"Add";
     }
     
     cell.name.text = currentFacebookFriend[@"displayName"];
-    cell.addButton.tag = indexPath.row;
-    [cell.addButton addTarget:self action:@selector(addButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.button.tag = indexPath.row;
+    if ([self.justAddedFriends containsObject:currentFacebookFriend[@"fbId"]]) {
+        [cell.button setTitle:CANCEL_BUTTON forState:UIControlStateNormal];
+        //cell.button.titleLabel.text = CANCEL_BUTTON;
+        cell.button.backgroundColor = [UIColor orangeColor];
+        [cell.button removeTarget:self action:@selector(addButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button addTarget:self action:@selector(cancelButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        [cell.button setTitle:ADD_BUTTON forState:UIControlStateNormal];
+        cell.button.backgroundColor = [UIColor blueColor];
+        [cell.button removeTarget:self action:@selector(cancelButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.button addTarget:self action:@selector(addButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     return cell;
 }
@@ -119,7 +135,7 @@ NSString * const ADD_BUTTON = @"Add";
     } else {
         selectedFacebookFriend = [self.fbFriends objectAtIndex:sender.tag];
     }
-    NSLog(@"selected user: %@", selectedFacebookFriend[@"displayName"]);
+    NSLog(@"selected user: %@ with id: %@", selectedFacebookFriend[@"displayName"], selectedFacebookFriend[@"fbId"]);
     
     // Retrieve Friend relations
     PFQuery *query = [PFQuery queryWithClassName:@"Friends"];
@@ -127,8 +143,6 @@ NSString * const ADD_BUTTON = @"Add";
     [query whereKey:@"to" equalTo:selectedFacebookFriend];
     [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         if (!error) {
-            NSLog(@"existing relation: %@", results);
-            
             if ([results count]) {
                 // Update existing friend relation
                 PFObject *existingRelation = [results objectAtIndex:0];
@@ -136,6 +150,9 @@ NSString * const ADD_BUTTON = @"Add";
                 [existingRelation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
                         NSLog(@"Add success");
+                        [self.justAddedFriends addObject:selectedFacebookFriend[@"fbId"]];
+                        [self.tableView reloadData];
+                        [self.searchDisplayController.searchResultsTableView reloadData];
                     } else {
                         NSLog(@"Add error: %@", error);
                     }
@@ -153,6 +170,9 @@ NSString * const ADD_BUTTON = @"Add";
                 [friendRelation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
                         NSLog(@"Add success");
+                        [self.justAddedFriends addObject:selectedFacebookFriend[@"fbId"]];
+                        [self.tableView reloadData];
+                        [self.searchDisplayController.searchResultsTableView reloadData];
                     } else {
                         NSLog(@"Add error: %@", error);
                     }
@@ -164,5 +184,41 @@ NSString * const ADD_BUTTON = @"Add";
     }];
 }
 
+- (IBAction)cancelButtonClicked:(UIButton *)sender {
+    // Get the right PFUser
+    PFUser *selectedFacebookFriend = nil;
+    if (self.searchDisplayController.active) {
+        NSLog(@"search is active");
+        selectedFacebookFriend = [self.searchResults objectAtIndex:sender.tag];
+    } else {
+        selectedFacebookFriend = [self.fbFriends objectAtIndex:sender.tag];
+    }
+    NSLog(@"selected user: %@", selectedFacebookFriend[@"displayName"]);
+    
+    // Delete friend request
+    PFQuery *query = [PFQuery queryWithClassName:@"Friends"];
+    [query whereKey:@"from" equalTo:[PFUser currentUser]];
+    [query whereKey:@"to" equalTo:selectedFacebookFriend];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+        if (!error) {
+            if ([results count]) {
+                // Update existing friend relation
+                PFObject *existingRelation = [results objectAtIndex:0];
+                [existingRelation deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        NSLog(@"Cancel success");
+                        [self.justAddedFriends removeObject:selectedFacebookFriend[@"fbId"]];
+                        [self.tableView reloadData];
+                        [self.searchDisplayController.searchResultsTableView reloadData];
+                    } else {
+                        NSLog(@"Cancel error: %@", error);
+                    }
+                }];
+            }
+        } else {
+            NSLog(@"retrieve Friends error: %@", error);
+        }
+    }];
+}
 
 @end
