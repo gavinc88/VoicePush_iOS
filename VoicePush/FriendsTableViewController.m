@@ -97,6 +97,8 @@ NSIndexPath *alertIndexPath;
             } else {
                 NSLog(@"no result");
             }
+            
+            [self sortFriends];
             [self.tableView reloadData];
         } else {
             NSLog(@"error: %@", error);
@@ -104,6 +106,26 @@ NSIndexPath *alertIndexPath;
         
         [self.refreshControl endRefreshing];
     }];
+}
+
+- (void)sortFriends{
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"displayName" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    //sort alphabetically
+    NSArray *sortedArray;
+    sortedArray = [self.myFriends sortedArrayUsingDescriptors:sortDescriptors];
+    [self.myFriends removeAllObjects];
+    [self.myFriends addObjectsFromArray:sortedArray];
+    
+    sortedArray = [self.myFriendRequests sortedArrayUsingDescriptors:sortDescriptors];
+    [self.myFriendRequests removeAllObjects];
+    [self.myFriendRequests addObjectsFromArray:sortedArray];
+    
+    sortedArray = [self.myPendingFriendRequestsFromOthers sortedArrayUsingDescriptors:sortDescriptors];
+    [self.myPendingFriendRequestsFromOthers removeAllObjects];
+    [self.myPendingFriendRequestsFromOthers addObjectsFromArray:sortedArray];
 }
 
 #pragma mark - Table view data source

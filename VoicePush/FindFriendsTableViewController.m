@@ -63,8 +63,21 @@ NSString * const ADD_BUTTON = @"Add";
             [self.fbFriends addObject:parseUser];
         }
         
+        [self sortFriends];
         [self.tableView reloadData];
     }];
+}
+
+- (void)sortFriends{
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"displayName" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    //sort alphabetically
+    NSArray *sortedArray;
+    sortedArray = [self.fbFriends sortedArrayUsingDescriptors:sortDescriptors];
+    [self.fbFriends removeAllObjects];
+    [self.fbFriends addObjectsFromArray:sortedArray];
 }
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
