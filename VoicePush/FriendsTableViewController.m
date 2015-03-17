@@ -180,30 +180,55 @@
                 [existingRelation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
                         NSLog(@"Add success");
-                        
-                        // Add reverse friend relation with status = accepted
-                        PFObject *reverseFriendRelation = [PFObject objectWithClassName:@"Friends"];
-                        reverseFriendRelation[@"from"] = [PFUser currentUser];
-                        reverseFriendRelation[@"fromDisplayName"] = [PFUser currentUser][@"displayName"];
-                        reverseFriendRelation[@"fromFbId"] = [PFUser currentUser][@"fbId"];
-                        reverseFriendRelation[@"to"] = requestedFriend;
-                        reverseFriendRelation[@"toDisplayName"] = requestedFriendDisplayName;
-                        reverseFriendRelation[@"toFbId"] = requestedFriendFbId;
-                        reverseFriendRelation[@"status"] = ACCEPTED;
-                        [reverseFriendRelation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                            if (succeeded) {
-                                NSLog(@"Reverse Add success");
-                                [self initializeMyFriends];
-                            } else {
-                                NSLog(@"Reverse Add error: %@", error);
-                            }
-                        }];
-
                     } else {
                         NSLog(@"Add error: %@", error);
                     }
                 }];
             }
+        }
+    }];
+    
+    // Retrieve reverse Friend relations
+    PFQuery *reverseQuery = [PFQuery queryWithClassName:@"Friends"];
+    [reverseQuery whereKey:@"from" equalTo:[PFUser currentUser]];
+    [reverseQuery whereKey:@"to" equalTo:requestedFriend];
+    [reverseQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+        if (!error) {
+            NSLog(@"existing relation: %@", results);
+            
+            if ([results count]) {
+                // Update existing friend relation status
+                PFObject *existingRelation = [results objectAtIndex:0];
+                existingRelation[@"status"] = ACCEPTED;
+                [existingRelation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        NSLog(@"Add success");
+                    } else {
+                        NSLog(@"Add error: %@", error);
+                    }
+                }];
+            } else {
+                // Add reverse friend relation with status = accepted if current relationship does not exists yet
+                PFObject *reverseFriendRelation = [PFObject objectWithClassName:@"Friends"];
+                reverseFriendRelation[@"from"] = [PFUser currentUser];
+                reverseFriendRelation[@"fromDisplayName"] = [PFUser currentUser][@"displayName"];
+                reverseFriendRelation[@"fromFbId"] = [PFUser currentUser][@"fbId"];
+                reverseFriendRelation[@"to"] = requestedFriend;
+                reverseFriendRelation[@"toDisplayName"] = requestedFriendDisplayName;
+                reverseFriendRelation[@"toFbId"] = requestedFriendFbId;
+                reverseFriendRelation[@"status"] = ACCEPTED;
+                [reverseFriendRelation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        NSLog(@"Reverse Add success");
+                    } else {
+                        NSLog(@"Reverse Add error: %@", error);
+                    }
+                }];
+            }
+            
+            [self initializeMyFriends];
+        } else {
+            NSLog(@"Reverse query error: %@", error);
         }
     }];
 }
@@ -282,6 +307,8 @@
     if ([segue.identifier isEqualToString:@"segueToFindFriends"]) {
         FindFriendsTableViewController *dest = [segue destinationViewController];
         dest.ignoreList = [[NSMutableArray alloc]init];
+        
+        // Add all fbIds to ignore list
         for (NSArray * myFriend in self.myFriends) {
             [dest.ignoreList addObject:myFriend[2]];
         }

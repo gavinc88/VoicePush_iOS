@@ -354,7 +354,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendrequestidentifier" id="qaJ-1f-ehw" customClass="FriendRequestTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendrequestidentifier" id="qaJ-1f-ehw" customClass="FriendRequestTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qaJ-1f-ehw" id="Jm3-9c-crr">
@@ -407,7 +407,7 @@
                                     <outlet property="rejectButton" destination="NQS-xZ-u99" id="r3A-1U-VqI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myrequestidentifier" rowHeight="44" id="JZJ-ak-tI5" customClass="MyRequestTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myrequestidentifier" rowHeight="44" id="JZJ-ak-tI5" customClass="MyRequestTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JZJ-ak-tI5" id="PGN-7b-vPg">
@@ -441,7 +441,7 @@
                                     <outlet property="name" destination="LsA-Uw-c0y" id="Zig-0a-drD"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendidentifier" textLabel="GUP-hC-6g2" style="IBUITableViewCellStyleDefault" id="ZRA-Ji-nSD">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendidentifier" textLabel="GUP-hC-6g2" style="IBUITableViewCellStyleDefault" id="ZRA-Ji-nSD">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZRA-Ji-nSD" id="JeG-3P-TO3">
                                     <autoresizingMask key="autoresizingMask"/>

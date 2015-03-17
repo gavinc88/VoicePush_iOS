@@ -412,6 +412,11 @@
 					861CEDF11AAE9A90004C221C = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = M2R83997R2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					861CEE0A1AAE9A90004C221C = {
 						CreatedOnToolsVersion = 6.1.1;
