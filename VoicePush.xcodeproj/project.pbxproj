@@ -62,6 +62,8 @@
 		861CF2A31AB25485004C221C /* FindFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CF2A21AB25485004C221C /* FindFriendsTableViewController.m */; };
 		864D3C2C1AB2D87800F42A05 /* AddUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */; };
 		8662D29A1AB806AA0076AD2E /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D2991AB806AA0076AD2E /* Friend.m */; };
+		8662D29E1ABAA0260076AD2E /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D29D1ABAA0260076AD2E /* HistoryTableViewController.m */; };
+		8662D2A11ABAABDA0076AD2E /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D2A01ABAABDA0076AD2E /* HistoryTableViewCell.m */; };
 		86CB407F1AB3A03600B0A7EC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB407E1AB3A03600B0A7EC /* Constants.m */; };
 		86CB40831AB3B9D000B0A7EC /* FriendRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB40821AB3B9D000B0A7EC /* FriendRequestTableViewCell.m */; };
 		86CB40861AB3B9E500B0A7EC /* MyRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB40851AB3B9E500B0A7EC /* MyRequestTableViewCell.m */; };
@@ -155,6 +157,10 @@
 		864D3C2B1AB2D87800F42A05 /* AddUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserTableViewCell.m; sourceTree = "<group>"; };
 		8662D2981AB806AA0076AD2E /* Friend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
 		8662D2991AB806AA0076AD2E /* Friend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
+		8662D29C1ABAA0260076AD2E /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		8662D29D1ABAA0260076AD2E /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		8662D29F1ABAABDA0076AD2E /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewCell.h; sourceTree = "<group>"; };
+		8662D2A01ABAABDA0076AD2E /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
 		86CB407E1AB3A03600B0A7EC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		86CB40801AB3A04600B0A7EC /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		86CB40811AB3B9D000B0A7EC /* FriendRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendRequestTableViewCell.h; sourceTree = "<group>"; };
@@ -258,6 +264,10 @@
 				86CB40821AB3B9D000B0A7EC /* FriendRequestTableViewCell.m */,
 				86CB40841AB3B9E500B0A7EC /* MyRequestTableViewCell.h */,
 				86CB40851AB3B9E500B0A7EC /* MyRequestTableViewCell.m */,
+				8662D29C1ABAA0260076AD2E /* HistoryTableViewController.h */,
+				8662D29D1ABAA0260076AD2E /* HistoryTableViewController.m */,
+				8662D29F1ABAABDA0076AD2E /* HistoryTableViewCell.h */,
+				8662D2A01ABAABDA0076AD2E /* HistoryTableViewCell.m */,
 			);
 			path = VoicePush;
 			sourceTree = "<group>";
@@ -532,12 +542,14 @@
 				861CEE511AAEBBF1004C221C /* SettingsTableViewController.m in Sources */,
 				861CF2A31AB25485004C221C /* FindFriendsTableViewController.m in Sources */,
 				861CEE481AAEBBB4004C221C /* HomeTableViewController.m in Sources */,
+				8662D29E1ABAA0260076AD2E /* HistoryTableViewController.m in Sources */,
 				861CF26D1AB0498D004C221C /* AddMessageViewController.m in Sources */,
 				861CEDFE1AAE9A90004C221C /* LoginViewController.m in Sources */,
 				864D3C2C1AB2D87800F42A05 /* AddUserTableViewCell.m in Sources */,
 				861CF2661AB02907004C221C /* SoundLibrary.m in Sources */,
 				86CB407F1AB3A03600B0A7EC /* Constants.m in Sources */,
 				861CEE5B1AAEC33A004C221C /* Sound.m in Sources */,
+				8662D2A11ABAABDA0076AD2E /* HistoryTableViewCell.m in Sources */,
 				8662D29A1AB806AA0076AD2E /* Friend.m in Sources */,
 				861CEE4B1AAEBBC2004C221C /* FriendsTableViewController.m in Sources */,
 				861CEE4E1AAEBBE7004C221C /* SelectFriendsTableViewController.m in Sources */,

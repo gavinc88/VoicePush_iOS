@@ -118,6 +118,22 @@
     [push setData:data];
     [push sendPushInBackground];
     
+    
+    NSMutableArray *historyObjects = [[NSMutableArray alloc] init];
+    for (NSString *friend in self.selectedFriends) {
+        // Save push notification in History class
+        PFObject *history = [PFObject objectWithClassName:@"History"];
+        history[@"from"] = [PFUser currentUser];
+        history[@"fromDisplayName"] = [[PFUser currentUser] objectForKey:@"displayName"];
+        history[@"to"] = friend;
+        history[@"message"] = self.myMessage;
+        history[@"soundFilename"] = self.mySound.filename;
+        history[@"soundFileType"] = self.mySound.fileType;
+        [historyObjects addObject:history];
+    }
+    
+    [PFObject saveAllInBackground:historyObjects];
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

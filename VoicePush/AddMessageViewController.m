@@ -11,6 +11,8 @@
 
 @implementation AddMessageViewController
 
+int const MAX_MESSAGE_LENGTH = 52;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -29,7 +31,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
-    self.charactersLeftMessage.text = [NSString stringWithFormat:@"Characters left: %lu", 48 - self.messageBox.text.length];
+    self.charactersLeftMessage.text = [NSString stringWithFormat:@"Characters left: %lu", MAX_MESSAGE_LENGTH - self.messageBox.text.length];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -50,7 +52,7 @@
     NSUInteger newLength = [textView.text length] + [text length] - range.length;
     
     //NSLog(@"shouldChangeCharactersInRange %lu for %@",(unsigned long)newLength, text);
-    return (newLength > 48) ? NO : YES;
+    return (newLength > MAX_MESSAGE_LENGTH) ? NO : YES;
 }
 
 
