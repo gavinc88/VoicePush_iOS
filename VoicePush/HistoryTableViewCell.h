@@ -14,7 +14,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UILabel *message;
 @property (strong, nonatomic) IBOutlet UIButton *replayButton;
-@property (strong, nonatomic) IBOutlet UIButton *messageButton;
 @property (strong, nonatomic) IBOutlet UIButton *replyButton;
+
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightConstraint;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *buttonBottomMarginConstraint;
 
 @end

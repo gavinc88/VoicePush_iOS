@@ -8,8 +8,18 @@
 
 #import "HistoryTableViewController.h"
 #import "HistoryTableViewCell.h"
+#import "SoundLibrary.h"
+#import <AudioToolbox/AudioToolbox.h>
+
+@interface HistoryTableViewController ()
+
+@property NSInteger selectedIndex;
+
+@end
 
 @implementation HistoryTableViewController
+
+SystemSoundID mySoundID; //used to play selected sound
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithClassName:@"History"];
@@ -22,6 +32,22 @@
         self.objectsPerPage = 25;
     }
     return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.selectedIndex = -1;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - PFQueryTableViewController
@@ -61,9 +87,12 @@
 }
 
 
- // Override to customize the look of a cell representing an object. The default is to display
-// a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
-// and the imageView being the imageKey in the object.
+#pragma mark - TableView
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     static NSString *cellIdentifier = @"historyidentifier";
     
@@ -92,6 +121,26 @@
     
     cell.message.text = [object objectForKey:@"message"];
     
+    // toggle button visibility
+    if (indexPath.row == self.selectedIndex) {
+        // show buttons
+        cell.replayButton.hidden = NO;
+        cell.replyButton.hidden = NO;
+        
+        cell.replayButton.tag = indexPath.row;
+        cell.replyButton.tag = indexPath.row;
+        [cell.replayButton addTarget:self action:@selector(replayButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.replyButton addTarget:self action:@selector(replyButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.buttonHeightConstraint.constant = 30;
+        cell.buttonBottomMarginConstraint.constant = 10;
+    } else {
+        // hide buttons
+        cell.replayButton.hidden = YES;
+        cell.replyButton.hidden = YES;
+        cell.buttonHeightConstraint.constant = 0;
+        cell.buttonBottomMarginConstraint.constant = 0;
+    }
+    
     return cell;
 }
 
@@ -99,15 +148,10 @@
 // return "time" if format desired is time
 // else return # of days ago
 - (NSString *)relativeDateStringForDate:(NSDate *)date {
-    NSCalendarUnit units = NSDayCalendarUnit | NSWeekOfYearCalendarUnit |
-    NSMonthCalendarUnit | NSYearCalendarUnit;
+    NSCalendarUnit units = NSDayCalendarUnit | NSWeekOfYearCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
     
     // if `date` is before "now" (i.e. in the past) then the components will be positive
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:units
-                                                                   fromDate:date
-                                                                     toDate:[NSDate date]
-                                                                    options:0];
-    NSLog(@"component.day %ld", (long)components.day);
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:units fromDate:date toDate:[NSDate date] options:0];
     if (components.year > 0) {
         return @"date";
     } else if (components.month > 0) {
@@ -190,6 +234,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    // Dispose of the sound
+    AudioServicesDisposeSystemSoundID(mySoundID);
+    
+    // close expanded cell reclicked
+    if (self.selectedIndex == indexPath.row) {
+        self.selectedIndex = -1;
+    } else {
+        self.selectedIndex = indexPath.row;
+    }
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    [self.tableView reloadData];
+}
+
+#pragma mark - Actions
+
+- (IBAction)replyButtonClicked:(UIButton *)sender {
+//    self.selectedSound = [self.mySounds objectAtIndex:sender.tag];
+//    if (self.selectedSound) {
+//        [self performSegueWithIdentifier:@"segueToSelectFriends" sender:self];
+//    }
+}
+
+- (IBAction)replayButtonClicked:(UIButton *)sender {
+    // Dispose of the sound
+    AudioServicesDisposeSystemSoundID(mySoundID);
+    
+    // Create the sound ID
+    PFObject *notificationObject = [self.objects objectAtIndex:sender.tag];
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:notificationObject[@"soundFilename"] ofType:notificationObject[@"soundFileType"]];
+    NSURL *pewPewURL = [NSURL fileURLWithPath:soundPath];
+    
+    // Play the sound
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &mySoundID);
+    AudioServicesPlaySystemSound(mySoundID);
 }
 
 @end
