@@ -8,12 +8,13 @@
 
 #import "HistoryTableViewController.h"
 #import "HistoryTableViewCell.h"
-#import "SoundLibrary.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "ChooseSoundTableViewController.h"
 
 @interface HistoryTableViewController ()
 
 @property NSInteger selectedIndex;
+@property (strong, nonatomic) PFUser *selectedUser;
 
 @end
 
@@ -62,6 +63,25 @@ SystemSoundID mySoundID; //used to play selected sound
     [super objectsDidLoad:error];
     
     // This method is called every time objects are loaded from Parse via the PFQuery
+    
+    // Handle empty notification list
+    if ([self.objects count]) {
+        self.tableView.backgroundView = nil;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    } else {
+        // Display a message when the table is empty
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        messageLabel.text = @"Sorry you have not received any notification yet.";
+        messageLabel.textColor = [UIColor blackColor];
+        messageLabel.numberOfLines = 2;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+        messageLabel.font = [UIFont fontWithName:@"System" size:20];
+        [messageLabel sizeToFit];
+        
+        self.tableView.backgroundView = messageLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
 }
 
 
@@ -120,6 +140,11 @@ SystemSoundID mySoundID; //used to play selected sound
     cell.date.text = dateString;
     
     cell.message.text = [object objectForKey:@"message"];
+    if ([cell.message.text isEqualToString:@""]) {
+        cell.messageBottomMarginConstraint.constant = 0;
+    } else {
+        cell.messageBottomMarginConstraint.constant = 10;
+    }
     
     // toggle button visibility
     if (indexPath.row == self.selectedIndex) {
@@ -253,10 +278,12 @@ SystemSoundID mySoundID; //used to play selected sound
 #pragma mark - Actions
 
 - (IBAction)replyButtonClicked:(UIButton *)sender {
-//    self.selectedSound = [self.mySounds objectAtIndex:sender.tag];
-//    if (self.selectedSound) {
-//        [self performSegueWithIdentifier:@"segueToSelectFriends" sender:self];
-//    }
+    PFObject *notificationObject = [self.objects objectAtIndex:sender.tag];
+    PFUser *friend = [notificationObject objectForKey:@"from"];
+    self.selectedUser = friend;
+    if (self.selectedUser) {
+        [self performSegueWithIdentifier:@"segueToChooseSound" sender:self];
+    }
 }
 
 - (IBAction)replayButtonClicked:(UIButton *)sender {
@@ -271,6 +298,21 @@ SystemSoundID mySoundID; //used to play selected sound
     // Play the sound
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &mySoundID);
     AudioServicesPlaySystemSound(mySoundID);
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    // Dispose of the sound
+    AudioServicesDisposeSystemSoundID(mySoundID);
+    
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"segueToChooseSound"]) {
+        ChooseSoundTableViewController *dest = [segue destinationViewController];
+        dest.myFriend = self.selectedUser;
+    }
 }
 
 @end

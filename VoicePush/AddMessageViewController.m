@@ -22,6 +22,7 @@ int const MAX_MESSAGE_LENGTH = 52;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // This should only be called if came from the home page
     // Pass the sound and message along
     if ([segue.identifier isEqualToString:@"segueToSelectFriends"]) {
         SelectFriendsTableViewController *dest = [segue destinationViewController];
@@ -55,5 +56,42 @@ int const MAX_MESSAGE_LENGTH = 52;
     return (newLength > MAX_MESSAGE_LENGTH) ? NO : YES;
 }
 
+- (IBAction)sendButtonClicked:(UIBarButtonItem *)sender {
+    // Build the actual push notification target query
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey: @"user" equalTo:self.myFriend];
+    
+    NSString *message;
+    if (self.messageBox.text) {
+        message = [NSString stringWithFormat:@"%@: %@", [[PFUser currentUser] objectForKey:@"displayName"], self.messageBox.text];
+    } else {
+        message = [NSString stringWithFormat: @"New Message from %@", [[PFUser currentUser] objectForKey:@"displayName"]];
+    }
+    
+    NSString *filePath = [NSString stringWithFormat:@"%@.%@", self.mySound.filename, self.mySound.fileType];
+    
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                          message, @"alert",
+                          filePath, @"sound",
+                          nil];
+    
+    // Send the notification.
+    PFPush *push = [[PFPush alloc] init];
+    [push setQuery:pushQuery];
+    [push setData:data];
+    [push sendPushInBackground];
+    
+    // Save push notification in History class
+    PFObject *history = [PFObject objectWithClassName:@"History"];
+    history[@"from"] = [PFUser currentUser];
+    history[@"fromDisplayName"] = [[PFUser currentUser] objectForKey:@"displayName"];
+    history[@"to"] = self.myFriend;
+    history[@"message"] = self.messageBox.text ? self.messageBox.text : @"";;
+    history[@"soundFilename"] = self.mySound.filename;
+    history[@"soundFileType"] = self.mySound.fileType;
+    [history saveInBackground];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

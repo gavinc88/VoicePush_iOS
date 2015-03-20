@@ -126,7 +126,7 @@
         history[@"from"] = [PFUser currentUser];
         history[@"fromDisplayName"] = [[PFUser currentUser] objectForKey:@"displayName"];
         history[@"to"] = friend;
-        history[@"message"] = self.myMessage;
+        history[@"message"] = self.myMessage ? self.myMessage : @"";
         history[@"soundFilename"] = self.mySound.filename;
         history[@"soundFileType"] = self.mySound.fileType;
         [historyObjects addObject:history];

@@ -64,6 +64,7 @@
 		8662D29A1AB806AA0076AD2E /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D2991AB806AA0076AD2E /* Friend.m */; };
 		8662D29E1ABAA0260076AD2E /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D29D1ABAA0260076AD2E /* HistoryTableViewController.m */; };
 		8662D2A11ABAABDA0076AD2E /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D2A01ABAABDA0076AD2E /* HistoryTableViewCell.m */; };
+		8662D2A41ABBF6D00076AD2E /* ChooseSoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8662D2A31ABBF6D00076AD2E /* ChooseSoundTableViewController.m */; };
 		86CB407F1AB3A03600B0A7EC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB407E1AB3A03600B0A7EC /* Constants.m */; };
 		86CB40831AB3B9D000B0A7EC /* FriendRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB40821AB3B9D000B0A7EC /* FriendRequestTableViewCell.m */; };
 		86CB40861AB3B9E500B0A7EC /* MyRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CB40851AB3B9E500B0A7EC /* MyRequestTableViewCell.m */; };
@@ -161,6 +162,8 @@
 		8662D29D1ABAA0260076AD2E /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		8662D29F1ABAABDA0076AD2E /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewCell.h; sourceTree = "<group>"; };
 		8662D2A01ABAABDA0076AD2E /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
+		8662D2A21ABBF6D00076AD2E /* ChooseSoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSoundTableViewController.h; sourceTree = "<group>"; };
+		8662D2A31ABBF6D00076AD2E /* ChooseSoundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSoundTableViewController.m; sourceTree = "<group>"; };
 		86CB407E1AB3A03600B0A7EC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		86CB40801AB3A04600B0A7EC /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		86CB40811AB3B9D000B0A7EC /* FriendRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendRequestTableViewCell.h; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 				8662D29D1ABAA0260076AD2E /* HistoryTableViewController.m */,
 				8662D29F1ABAABDA0076AD2E /* HistoryTableViewCell.h */,
 				8662D2A01ABAABDA0076AD2E /* HistoryTableViewCell.m */,
+				8662D2A21ABBF6D00076AD2E /* ChooseSoundTableViewController.h */,
+				8662D2A31ABBF6D00076AD2E /* ChooseSoundTableViewController.m */,
 			);
 			path = VoicePush;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				861CF24D1AAEF929004C221C /* MainTabBarController.m in Sources */,
 				86CB40831AB3B9D000B0A7EC /* FriendRequestTableViewCell.m in Sources */,
 				861CF2501AAFAC6E004C221C /* Helper.m in Sources */,
+				8662D2A41ABBF6D00076AD2E /* ChooseSoundTableViewController.m in Sources */,
 				861CEDFB1AAE9A90004C221C /* AppDelegate.m in Sources */,
 				861CEDF81AAE9A90004C221C /* main.m in Sources */,
 				861CF26A1AB0433A004C221C /* SoundTableViewCell.m in Sources */,

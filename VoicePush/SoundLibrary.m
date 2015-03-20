@@ -33,7 +33,9 @@
         Sound *sound18 = [[Sound alloc] initWithName:@"Where are you?" filename:@"where_are_you" type:@"caf"];
         Sound *sound19 = [[Sound alloc] initWithName:@"Whistle" filename:@"whistle" type:@"caf"];
         
-        self.soundLibrary = [[NSArray alloc]initWithObjects:sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9,sound10,sound11,sound12,sound13,sound14,sound15,sound16,sound17,sound18,sound19,nil];
+        //self.soundLibrary = [[NSArray alloc]initWithObjects:sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9,sound10,sound11,sound12,sound13,sound14,sound15,sound16,sound17,sound18,sound19,nil];
+        
+        self.soundLibrary = [[NSArray alloc]initWithObjects:sound1,sound2,sound4,sound5,sound6,sound7,sound9,sound11,sound12,sound14,sound15,sound16,sound17,sound18,sound19,nil];
     }
     return self;
 }

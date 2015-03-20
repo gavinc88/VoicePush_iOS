@@ -289,6 +289,7 @@ NSIndexPath *alertIndexPath;
         }
     }];
     
+    NSLog(@"adding the reverse");
     // Retrieve reverse Friend relations
     PFQuery *reverseQuery = [PFQuery queryWithClassName:@"Friends"];
     [reverseQuery whereKey:@"from" equalTo:[PFUser currentUser]];

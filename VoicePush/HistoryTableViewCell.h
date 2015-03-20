@@ -19,5 +19,6 @@
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *buttonBottomMarginConstraint;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *messageBottomMarginConstraint;
 
 @end
